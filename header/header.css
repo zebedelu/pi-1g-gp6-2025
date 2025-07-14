@@ -1,0 +1,102 @@
+@import url('roboto.css');
+
+body > header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #D7D7D7;
+    height: 10%;
+    width: 100%;
+    margin: 0px;
+    text-align: center;
+    display: flex;
+    z-index: 1;
+}
+header > img {
+    cursor: pointer;
+}
+header > h1 {
+    margin-top: 15px;
+}
+#menu {
+    margin: 10px;
+}
+#logo {
+    margin: 10px;
+    border-radius: 15px;
+}
+#LogoMenu {
+    height: 10%;
+    margin: 10px;
+    border-radius: 15px;
+}
+body:has(#menu:hover) #BarraMenu {
+    left: 0px;
+    opacity: 1;
+}
+#background-black {
+    opacity: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: black;
+    pointer-events: none;
+    transition: 0.2s ease;
+    z-index: 1;
+}
+body:has(#menu:hover) #background-black {
+    opacity: 0.3;
+}
+body:has(#BarraMenu:hover) #background-black {
+    opacity: 0.3;
+}
+#BarraMenu:hover {
+    left: 0px;
+    opacity: 1;
+}
+#BarraMenu {
+    z-index: 2;
+    opacity: 1;
+    position: fixed;
+    height: 100%;
+    width: 350px;
+    background-color: #e7e7e7;
+    top: 0%;
+    left: -350px;
+    transition: 0.2s ease;
+}
+#BarraMenu > h1 {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bolder;
+    font-size: 250%;
+    position: absolute;
+    top: 0%;
+    right: 20%;
+}
+#BarraMenu > ul {
+    position: absolute;
+    left: 0px;
+}
+#BarraMenu > ul > li {
+    position: relative;
+    margin-left: 10%;
+    list-style-type: none;
+    margin-bottom: 20px;
+}
+#BarraMenu > ul > li > a {
+    text-decoration: none;
+    color: black;
+    font-size: 200%;
+    font-family: "Roboto", sans-serif;
+    font-weight: bolder;
+}
+body > nav {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
