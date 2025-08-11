@@ -22,7 +22,7 @@
 :root {
   --azul2: rgb(81, 126, 165);
   --azul1: rgb(120,156, 188);
-  --branco1: rgb(255, 255, 255);
+  --branco1: rgb(249, 249, 249);
   --branco2: rgb(221, 221, 221);
   --cinza: rgb(197, 197, 197);
   --fonte1: "Fredoka-Light";
@@ -136,4 +136,15 @@ body > nav {
     left: 0;
     height: 100%;
     width: 100%;
+}
+footer {
+  background: #fff;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  color: #777;
+  padding: 20px;
+}
+footer nav a {
+  margin: 0 8px;
+  color: #777;
 }
