@@ -1,18 +1,10 @@
-/* #BarraMenu#BarraMenu > ul > li > a {
-  color: red;
-} */
 
-nav > * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 body {
   background: #f9f9f9;
   color: #333;
+  overflow-x: hidden;
 }
 .hero {
-  min-height: 90vh;
   background: #111 url("../images/background.jpg");
   color: white;
   display: flex;
@@ -20,6 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  min-height: 90vh;
 }
 .hero h1 {
   font-size: 4rem;
@@ -33,10 +26,11 @@ body {
   margin-bottom: 28px;
   max-width: 600px;
 }
-.hero .buttons {
-  margin: 20px;
+.buttons {
+  display: flex;
+  justify-content: center;
 }
-.hero .buttons a {
+.buttons a {
   padding: 25px 40px;
   font-family: var(--fonte1);
   border: none;
@@ -45,11 +39,13 @@ body {
   cursor: pointer;
   margin: 100px;
 }
-.hero .primary {
+.primary {
   background: #24a;
-  color: white;
+  color: rgb(0, 0, 0);
+  transition: 0.1s ease;
 }
-.hero .primary:hover {
+.primary:hover {
+  scale: 1.1;
   filter: var(--bright);
 }
 .scroll-section {
@@ -57,18 +53,4 @@ body {
   background: #f9f9f9;
   border-radius: 20px;
   margin-top: -2%;
-}
-footer {
-  background: #fff;
-  padding: 20px;
-  border-top: 1px solid #ddd;
-  text-align: center;
-  color: #777;
-}
-footer nav a {
-  margin: 0 8px;
-  color: #777;
-}
-#BarraMenu > ul > li:nth-child(1) > a {
-  text-decoration: underline;
 }

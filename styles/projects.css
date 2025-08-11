@@ -143,7 +143,7 @@ body > nav {
   accent-color: var(--azul);
   cursor: pointer;
 }
-.add-btn {
+.btn {
   margin: 10px;
   border-radius: 10px;
   border: none;
@@ -153,9 +153,9 @@ body > nav {
   transition: 0.05s ease;
   cursor: pointer;
 }
-.add-btn:hover {
+.btn:hover {
   filter: var(--bright);
 }
-#BarraMenu > ul > li:nth-child(2) > a {
+#BarraMenu > ul > li:nth-child(3) > a {
   text-decoration: underline;
 }
