@@ -1,0 +1,74 @@
+/* #BarraMenu#BarraMenu > ul > li > a {
+  color: red;
+} */
+
+nav > * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #f9f9f9;
+  color: #333;
+}
+.hero {
+  min-height: 90vh;
+  background: #111 url("../images/background.jpg");
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 16px;
+  font-family: var(--fonte2);
+  font-size: 400%;
+}
+.hero p {
+  font-family: var(--fonte1);
+  font-size: 1.3rem;
+  margin-bottom: 28px;
+  max-width: 600px;
+}
+.hero .buttons {
+  margin: 20px;
+}
+.hero .buttons a {
+  padding: 25px 40px;
+  font-family: var(--fonte1);
+  border: none;
+  border-radius: 20px;
+  font-weight: bolder;
+  cursor: pointer;
+  margin: 100px;
+}
+.hero .primary {
+  background: #24a;
+  color: white;
+}
+.hero .primary:hover {
+  filter: var(--bright);
+}
+.scroll-section {
+  height: 100vh;
+  background: #f9f9f9;
+  border-radius: 20px;
+  margin-top: -2%;
+}
+footer {
+  background: #fff;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  color: #777;
+}
+footer nav a {
+  margin: 0 8px;
+  color: #777;
+}
+#BarraMenu > ul > li:nth-child(1) > a {
+  text-decoration: underline;
+}

@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", ()=>{
     document.body.insertAdjacentHTML("afterbegin", 
         `
-<header>
+<header id="DefaultHeader">
     <img id="menu" src="header/menu.png" alt="Menu">
     <img id="logo" src="favicon.ico" alt="Logo" >
     <h1>Artephy</h1>
 </header>
 <div id="background-black"></div>
 <div id="BarraMenu">
-     <img id="LogoMenu" src="favicon.ico" alt="Logo">
+    <img id="LogoMenu" src="favicon.ico" alt="Logo">
     <h1>Artephy</h1>
     <ul>
         <li><a href="home.html">HOME</a></li>

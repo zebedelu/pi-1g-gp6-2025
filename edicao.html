@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edição.</title>
+
+    <script>var FileUploaded = "";</script>
+    <link rel="stylesheet" type="text/css" href="header/header.css" />
+
+    <script src="scripts/main.js"></script>
+
+    <script src="scripts/edicao.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/edicao.css" />
+  </head>
+  <body>
+    <div id="dialog">
+      <div>
+        <p></p>
+      </div>
+    </div>
+    <header>
+      <img src="images/logo32x32.jpg" id="Backbtn1" />
+      <h1 id="Backbtn2">Artephy</h1>
+    </header>
+    <main>
+      <div style="width: 310px">
+        <div id="container-efeitos" style="min-height: 50px; display: none">
+          <div id="container-efeitos-historico">
+            <button id="add-effect" type="button" onclick="AddEffect()">+</button>
+            <div id="historico"></div>
+          </div>
+          <div id="container-efeito" style="display: none;"> 
+            <img src="bloxy.jpg" id="container-efeito-img" />
+            <h1>Efeito 1</h1>
+            <input type="number" max="200" min="-100" value="100">
+            <img src="images/lixeira.png" id="container-efeito-lixeira" onclick="RemoveEffect(this)"/>
+          </div>
+        </div>
+        <div id="container-draws" style="min-height: 50px">
+          <div id="container-draw-item" class="selected">
+            <img src="bloxy.jpg" />
+          </div>
+          <div id="container-draw-item"><img src="bloxy.jpg" /></div>
+          <div id="container-draw-item"><img src="bloxy.jpg" /></div>
+          <div id="container-draw-item"><img src="bloxy.jpg" /></div>
+          <div id="container-draw-item"><img src="bloxy.jpg" /></div>
+        </div>
+      </div>
+      <div style="width: 860px">
+        <div id="imagespace">
+        </div>
+      </div>
+      <div style="width: 335px">
+        <div id="container-selected" style="min-height: 50px">
+          <h1>NOME</h1>
+          <h2>Posição:</h2>
+          <p>x</p>
+          <input type="number" min="-100" max="200" oninput="changePropriet(this, 'left')" value="50"/>
+          <p>y</p>
+          <input type="number" min="-100" max="200" oninput="changePropriet(this, 'top')" value="50"/>
+          <h2>Tamanho:</h2>
+          <p>x</p>
+          <input type="number" min="0" max="2000" oninput="changePropriet(this, 'height')" value="25"/>
+          <p>y</p>
+          <input type="number" min="0" max="2000" oninput="changePropriet(this, 'width')" value="25"/>
+          <h2>Cor:</h2>
+          <input type="color" oninput="changePropriet(this, 'background-color')">
+          <h2>Borda:</h2>
+          <input type="number" min="0" max="100" oninput="changePropriet(this, 'border-radius')">
+        </div>
+        <div id="container-items" style="min-height: 50px">
+          <div id="container-items-info" style="order:-999999;">
+            <button>+</button>
+            <h1>ITEMS</h1>
+          </div>
+          <div class="container-items-item" style="display: none;" id="selected"> <!--style="display: none;"-->
+            <img src="images/logo32x32.jpg" />
+            <p>Lorem ipsum dolor sit amet</p>
+            <img src="images/lixeira.png">
+            <input type="number" value="0" min="0" max="1000" onchange="this.parentElement.style.order=-parseInt(this.value); profileData['Projetos'][ProjectName]['items'][this.parentElement.getAttribute('name')]['ordem'] = parseInt(this.value); LoadProject('imagem')">
+          </div>
+        </div>
+      </div>
+      <input style="display: none;" type="file" accept="image/*" onchange="UploadImage(this.files); setTimeout(()=>{this.value = ''},100)" id="fileuploader" max="10" multiple>
+    </main>
+  </body>
+</html>

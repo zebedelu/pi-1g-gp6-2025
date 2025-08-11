@@ -1,10 +1,41 @@
-@import url('roboto.css');
+@font-face {
+  font-family: 'Fredoka-Light';
+  src: url('Fredoka/static/Fredoka-Light.ttf') format('truetype');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Fredoka-Bold';
+  src: url('Fredoka/static/Fredoka-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url('Roboto/static/Roboto-Light.ttf') format('truetype');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: url('Roboto/static/Roboto-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
 
-body > header {
+:root {
+  --azul2: rgb(81, 126, 165);
+  --azul1: rgb(120,156, 188);
+  --branco1: rgb(255, 255, 255);
+  --branco2: rgb(221, 221, 221);
+  --cinza: rgb(197, 197, 197);
+  --fonte1: "Fredoka-Light";
+  --fonte2: "Fredoka-Bold";
+  --fonte3: "Roboto-Light";
+  --fonte4: "Roboto-Bold";
+  --bright: brightness(120%);
+}
+body > #DefaultHeader {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #D7D7D7;
+    background-color: var(--branco2);
     height: 10%;
     width: 100%;
     margin: 0px;
@@ -12,11 +43,15 @@ body > header {
     display: flex;
     z-index: 1;
 }
-header > img {
+body > #DefaultHeader > img {
     cursor: pointer;
 }
-header > h1 {
-    margin-top: 15px;
+body > #DefaultHeader > h1 {
+    font-family: var(--fonte2);
+    margin-block: 10px;
+    text-align: center;
+    width: 10%;
+    font-size: 250%;
 }
 #menu {
     margin: 10px;
@@ -68,30 +103,32 @@ body:has(#BarraMenu:hover) #background-black {
     transition: 0.2s ease;
 }
 #BarraMenu > h1 {
-    font-family: "Roboto", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: bolder;
-    font-size: 250%;
+    font-family: var(--fonte2);
+    height: 10%;
+    margin: 10px;
+    width: 50%;
+    font-size: 300%;
     position: absolute;
     top: 0%;
-    right: 20%;
+    right: 20%; 
 }
 #BarraMenu > ul {
     position: absolute;
-    left: 0px;
+    left: 10px;
 }
 #BarraMenu > ul > li {
     position: relative;
     margin-left: 10%;
     list-style-type: none;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 #BarraMenu > ul > li > a {
+    font-family: var(--fonte2);
     text-decoration: none;
     color: black;
-    font-size: 200%;
-    font-family: "Roboto", sans-serif;
-    font-weight: bolder;
+    font-size: 150%;
+    font-weight: bold;  
+    font-style: normal;
 }
 body > nav {
     position: absolute;

@@ -1,0 +1,319 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--branco2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#dialog {
+  position: absolute;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.3);
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+}
+#dialog > div {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--azul1);
+  border-radius: 10px;
+  flex-direction: column;
+  display: flex;
+}
+#dialog > div > p {
+  margin: 20px;
+  font-size: 200%;
+  font-family: var(--fonte1);
+}
+#dialog > div > button {
+  font-size: 130%;
+  font-family: var(--fonte1);
+  padding: 15px;
+  margin-block: 10px;
+  margin-inline: 20px;
+  background-color: var(--cinza);
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+#dialog > div > button:hover {
+  background-color: var(--branco2);
+}
+
+header {
+  display: flex;
+  margin: 7px;
+  padding: 2px;
+  border-radius: 10px;
+  background-color: var(--azul1);
+}
+header > * {
+  font-family: "Arial", "ajustar fonte";
+  margin: 2px;
+  font-size: 130%;
+  margin-inline: 5px;
+  border-radius: 10px;
+  height: 50px;
+  align-content: center;
+  cursor: pointer;
+}
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+main > div {
+  margin: 5px;
+  min-width: 100px;
+  max-width: 90%;
+  background-color: white;
+  resize: horizontal;
+  overflow: hidden;
+  justify-items: center;
+}
+#container-efeitos {
+  background-color: var(--cinza);
+  resize: vertical;
+  overflow: auto;
+  width: 95%;
+  height: 45%;
+  margin: 10px;
+  border-radius: 5px;
+}
+#container-efeitos-historico {
+  background-color: var(--azul1);
+  border-radius: 15px;
+  height: 20%;
+  width: 100%;
+  display: flex;
+}
+#add-effect {
+  background: none;
+  border: none;
+  height: 100%;
+  width: 20%;
+  border-radius: 15px;
+  font-size: 300%;
+  transition: 0.1s ease;
+}
+#add-effect:hover {
+  cursor: pointer;
+  scale: 1.3;
+}
+#historico {
+  border-radius: 15px;
+  background: none;
+  flex: 1;
+}
+#container-efeito {
+  justify-content: space-between;
+  background-color: var(--azul1);
+  border-radius: 15px;
+  height: 20%;
+  width: 98%;
+  margin: 1px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+#container-efeito > input {
+  margin-block: 10px;
+  font-size: 100%;
+  border: none;
+  background-color: var(--branco2);
+}
+#container-efeito-img {
+  height: 100%;
+  border-radius: 15px;
+  aspect-ratio: 1 / 1;
+}
+#container-efeito > h1 {
+  font-size: 100%;
+  margin-inline-start: 40px;
+  align-self: center;
+  align-content: center;
+  text-align: var(--fonte1);
+}
+#container-draws {
+  background-color: var(--cinza);
+  resize: vertical;
+  align-content: start;
+  display: flex;
+  flex-wrap: wrap;
+  width: 95%;
+  height: 45%;
+  margin: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+#container-draw-item {
+  margin: 5px;
+  height: 80px;
+  width: 80px;
+  border-radius: 15px;
+  background-color: var(--branco2);
+  transition: 0.1s ease;
+}
+#container-draw-item:hover {
+  scale: 1.1;
+  cursor: pointer;
+}
+#container-draw-item > * {
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+}
+#container-selected {
+  display: none;
+  background-color: var(--cinza);
+  resize: vertical;
+  overflow: auto;
+  justify-items: center;
+  width: 95%;
+  height: 45%;
+  margin: 10px;
+  border-radius: 5px;
+}
+#container-items {
+  background-color: var(--cinza);
+  resize: vertical;
+  overflow: auto;
+  justify-items: center;
+  width: 95%;
+  height: 45%;
+  margin: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+#container-items-info {
+  background-color: var(--azul1);
+  border-radius: 15px;
+  height: 3vw;
+  width: 100%;
+  display: flex;
+}
+#container-items-info > button {
+  background: none;
+  border: none;
+  height: 100%;
+  width: 20%;
+  border-radius: 15px;
+  font-size: 200%;
+  transition: 0.1s ease;
+}
+#container-items-info > button:hover {
+  scale: 1.2;
+  cursor: pointer;
+}
+#container-items-info > h1 {
+  height: 10vw;
+  margin-inline-start: 40px;
+  align-self: center;
+  align-content: center;
+  text-align: var(--fonte1);
+}
+#container-selected > h1 {
+  display: flex;
+  height: 15%;
+  width: 100%;
+  margin: 0px;
+  border-radius: 5px;
+  background-color: var(--branco2);
+  align-items: center;
+  justify-content: center;
+  font-size: 100%;
+}
+#container-selected > input {
+  display: flex;
+  align-content: center;
+  width: 30%;
+  margin: 5px;
+}
+#container-selected > p {
+    margin: 0px;
+}
+#container-efeito-lixeira {
+  height: 70%;
+  margin: 10px;
+  border-radius: 10px;
+  transition: 0.1s ease;
+}
+#container-efeito-lixeira:hover {
+  scale: 1.2;
+}
+.container-items-item {
+  cursor: pointer;
+  background-color: var(--azul1);
+  justify-content: space-between;
+  display: flex;
+  height: 2.5vw;
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 5px;
+}
+.container-items-item > p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+.container-items-item > * {
+  margin: 5px;
+  border-radius: 15px;
+}
+.container-items-item > img {
+  cursor: pointer;
+  max-height: 100%;
+  max-width: 20%;
+}
+.container-items-item > img:nth-child(3):hover {
+  scale: 1.2;
+}
+.container-items-item > input {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  max-width: 15%;
+}
+
+/* ############################################################ */
+#imagespace {
+  width: 90%;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  margin-block: 20px;
+  background-color: #e0e0e0; /* Cor base (cinza claro) */
+  background-image: linear-gradient(45deg, #c0c0c0 25%, transparent 25%),
+    linear-gradient(-45deg, #c0c0c0 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #c0c0c0 75%),
+    linear-gradient(-45deg, transparent 75%, #c0c0c0 75%);
+  background-size: 50px 50px; /* Tamanho dos quadrados */
+  background-position: 0 0, 0 25px, 25px -25px, -25px 0px;
+  border: 1px solid #999; /* Borda opcional para contraste */
+  overflow: hidden;
+  position: relative; /* Adicione isso para conter os elementos absolutos */
+  transform-origin: 50% 50%;
+}
+#imagespace > * {
+  position: absolute;
+  transform: translate(-50%,-50%);
+}
+#selected {
+  filter: brightness(115%);
+}
+#selectedImage {
+  border: 2px solid blue;
+  filter: brightness(115%);
+}
