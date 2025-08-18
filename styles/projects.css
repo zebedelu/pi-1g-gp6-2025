@@ -13,17 +13,17 @@
 }
 
 .projects-scroll::-webkit-scrollbar-thumb {
-  background-color: var(--azul2);
+  background-color: var(--secundario);
   border-radius: 4px;
 }
 
 .projects-scroll::-webkit-scrollbar-track {
-  background-color: var(--branco1);
+  background-color: var(--branco);
 }
 
 body > nav {
   padding-top: 20px;
-  background-color: var(--branco1);
+  background-color: var(--branco);
   overflow: hidden;
 }
 
@@ -37,7 +37,7 @@ body > nav {
 }
 
 .container {
-  background-color: var(--azul1);
+  background-color: var(--secundario);
   border-radius: 12px;
   padding: 20px;
   height: 100%;
@@ -86,7 +86,7 @@ body > nav {
 }
 
 .project-card {
-  background-color: var(--azul2);
+  background-color: var(--secundario);
   background-size: cover;
   background-position: center;
   border-radius: 10px;
@@ -100,10 +100,20 @@ body > nav {
   cursor: pointer;
   transition: transform 0.2s ease;
   font-size: 100%;
+  border: solid var(--text);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  flex-wrap: wrap;
+  flex-direction: column;
 }
-
+.project-card > p {
+  font-weight: bolder;
+  font-family: var(--titlefont1);
+  background-color: var(--secundario);
+  padding: 3px;
+  border-radius: 5px;
+}
 .project-card:hover {
-  filter: var(--bright);
+  filter: brightness(var(--bright));
 }
 
 .filters {
