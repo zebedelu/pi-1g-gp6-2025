@@ -1,0 +1,171 @@
+.projects-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-scroll {
+  overflow-y: auto;
+  padding-right: 5px; /* espaço pra barra de rolagem */
+}
+
+.projects-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.projects-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--secundario);
+  border-radius: 4px;
+}
+
+.projects-scroll::-webkit-scrollbar-track {
+  background-color: var(--branco);
+}
+
+body > nav {
+  padding-top: 20px;
+  background-color: var(--branco);
+  overflow: hidden;
+}
+
+.main-layout {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 90vh;
+  width: 100%;
+}
+
+.container {
+  background-color: var(--secundario);
+  border-radius: 12px;
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+}
+
+.projects-container {
+  width: 70%;
+  min-height: 500px;
+  height: 90vh;
+}
+
+.filters-container {
+  width: 20%;
+  min-height: 500px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.header span {
+  margin-left: 10px;
+  font-size: 28px;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+}
+
+.projects {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.project-card {
+  background-color: var(--secundario);
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  width: 31%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  font-size: 100%;
+  border: solid var(--text);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.project-card > p {
+  font-weight: bolder;
+  font-family: var(--titlefont1);
+  background-color: var(--secundario);
+  padding: 3px;
+  border-radius: 5px;
+}
+.project-card:hover {
+  filter: brightness(var(--bright));
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-title {
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--azul);
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.filter-option:hover {
+  background-color: var(--azul);
+}
+
+.filter-option input {
+  accent-color: var(--azul);
+  cursor: pointer;
+}
+.btn {
+  margin: 10px;
+  border-radius: 10px;
+  border: none;
+  padding: 20px;
+  font-size: 80%;
+  font-weight: bold;
+  transition: 0.05s ease;
+  cursor: pointer;
+}
+.btn:hover {
+  filter: var(--bright);
+}
+#BarraMenu > ul > li:nth-child(3) > a {
+  text-decoration: underline;
+}
