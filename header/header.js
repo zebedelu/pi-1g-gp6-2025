@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <a href="projects.html">Meus Projetos</a> • 
                 <a href="tutorial.html">Tutorial</a>
             </nav>
-            <p>&copy; 2025 Artephy - adicionar texto</p>
+            <p>&copy; 2025 Artephy - Instituto Federal Catarinense</p>
         </footer>
         `
     )
