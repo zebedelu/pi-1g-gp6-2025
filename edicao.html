@@ -8,10 +8,12 @@
     <script>var FileUploaded = "";</script>
     <link rel="stylesheet" type="text/css" href="header/header.css" />
 
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <script src="scripts/main.js"></script>
 
-    <script src="scripts/edicao.js"></script>
     <link rel="stylesheet" type="text/css" href="styles/edicao.css" />
+
+    <script src="libraries/fabric.min.js"></script>
   </head>
   <body>
     <div id="dialog">
@@ -22,19 +24,17 @@
     <header>
       <img src="images/logo32x32.jpg" id="Backbtn1" />
       <h1 id="Backbtn2">Artephy</h1>
+      <button id="disabletemp">Tirar temporario</button>
+      <img src="images/config.svg" id="configs">
     </header>
     <main>
       <div style="width: 310px">
         <div id="container-efeitos" style="min-height: 50px; display: none">
-          <div id="container-efeitos-historico">
-            <button id="add-effect" type="button" onclick="AddEffect()">+</button>
-            <div id="historico"></div>
-          </div>
+          <h2>FILTROS</h2>
           <div id="container-efeito" style="display: none;"> 
             <img src="bloxy.jpg" id="container-efeito-img" />
             <h1>Efeito 1</h1>
-            <input type="number" max="200" min="-100" value="100">
-            <img src="images/lixeira.png" id="container-efeito-lixeira" onclick="RemoveEffect(this)"/>
+            <input type="number">
           </div>
         </div>
         <div id="container-draws" style="min-height: 50px">
@@ -48,41 +48,50 @@
         </div>
       </div>
       <div style="width: 860px">
-        <div id="imagespace">
-        </div>
+        <canvas id="imagespace" width="800" height="600"></canvas>
       </div>
       <div style="width: 335px">
         <div id="container-selected" style="min-height: 50px">
           <h1>NOME</h1>
-          <h2>Posição:</h2>
-          <p>x</p>
-          <input type="number" min="-100" max="200" oninput="changePropriet(this, 'left')" value="50"/>
-          <p>y</p>
-          <input type="number" min="-100" max="200" oninput="changePropriet(this, 'top')" value="50"/>
-          <h2>Tamanho:</h2>
-          <p>x</p>
-          <input type="number" min="0" max="2000" oninput="changePropriet(this, 'height')" value="25"/>
-          <p>y</p>
-          <input type="number" min="0" max="2000" oninput="changePropriet(this, 'width')" value="25"/>
-          <h2>Cor:</h2>
-          <input type="color" oninput="changePropriet(this, 'background-color')">
-          <h2>Borda:</h2>
-          <input type="number" min="0" max="100" oninput="changePropriet(this, 'border-radius')">
+          <div>
+            <div>
+              <h2>Posição:</h2>
+              <p>x</p>
+              <input type="number" oninput="changePropriet(this, 'left')" value="50" step="5"/>
+              <p>y</p>
+              <input type="number" oninput="changePropriet(this, 'top')" value="50" step="5"/>
+            </div>
+            <div>
+              <h2>Tamanho:</h2>
+              <p>x</p>
+              <input type="number" oninput="changePropriet(this, 'height')" value="25"/>
+              <p>y</p>
+              <input type="number" oninput="changePropriet(this, 'width')" value="25"/>
+            </div>
+            <div>
+              <h2>Cor:</h2>
+              <input type="color" oninput="changePropriet(this, 'background-color')">
+              <h2>Borda:</h2>
+              <input type="number" oninput="changePropriet(this, 'border-radius')">
+            </div>
+          </div>
         </div>
         <div id="container-items" style="min-height: 50px">
           <div id="container-items-info" style="order:-999999;">
             <button>+</button>
             <h1>ITEMS</h1>
           </div>
-          <div class="container-items-item" style="display: none;" id="selected"> <!--style="display: none;"-->
+          <div class="container-items-item" style="display: none;"> <!--style="display: none;"-->
             <img src="images/logo32x32.jpg" />
             <p>Lorem ipsum dolor sit amet</p>
             <img src="images/lixeira.png">
-            <input type="number" value="0" min="0" max="1000" onchange="this.parentElement.style.order=-parseInt(this.value); profileData['Projetos'][ProjectName]['items'][this.parentElement.getAttribute('name')]['ordem'] = parseInt(this.value); LoadProject('imagem')">
+            <input type="number" value="0" onchange="profileData['Projetos'][ProjectName]['items'][this.parentElement.getAttribute('name')]['ordem'] = parseInt(this.value); LoadProject('imagem')">
           </div>
         </div>
       </div>
       <input style="display: none;" type="file" accept="image/*" onchange="UploadImage(this.files); setTimeout(()=>{this.value = ''},100)" id="fileuploader" max="10" multiple>
+      <a href="" download="" id="downloadBtn"></a>
     </main>
   </body>
+  <script src="scripts/edicao.js"></script>
 </html>
