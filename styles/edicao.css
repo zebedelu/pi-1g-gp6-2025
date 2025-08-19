@@ -181,7 +181,7 @@ main > div {
   border-radius: 5px;
   overflow-x: auto;
 }
-#container-draw-item {
+.container-draw-item {
   margin: 5px;
   height: 80px;
   width: 80px;
@@ -189,11 +189,17 @@ main > div {
   background-color: var(--branco2);
   transition: 0.1s ease;
 }
-#container-draw-item:hover {
+.container-draw-item:hover {
   scale: 1.1;
   cursor: pointer;
 }
-#container-draw-item > * {
+.container-draw-item p {
+  display: none;
+}
+.container-draw-item:hover p {
+  display: block;
+}
+.container-draw-item > * {
   height: 100%;
   width: 100%;
   border-radius: 15px;
