@@ -561,7 +561,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // DESELECIONAR AO CLICAR ESC // DELETAR AO CLICAR DELETE
   document.addEventListener("keydown", (key) => {
-    if (key.key == "Delete") {
+    if (key.key == "s") {AppendDraw(0)}
+    if (key.key == "c") {AppendDraw(1)}
+    if (key.key == "t") {AppendDraw(2)}
+    if (key.key == "Delete" || key.key == "e") {
       if (document.getElementById("selected"))
         RemoveItem(document.getElementById("selected").querySelector("p"));
         document.getElementById("selected").removeAttribute("id");

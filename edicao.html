@@ -38,19 +38,27 @@
           </div>
         </div>
         <div id="container-draws" style="min-height: 50px">
-          <div id="container-draw-item" class="selected">
-            <img src="bloxy.jpg" />
-          </div>
-          <div id="container-draw-item"><img src="bloxy.jpg" /></div>
-          <div id="container-draw-item"><img src="bloxy.jpg" /></div>
-          <div id="container-draw-item"><img src="bloxy.jpg" /></div>
-          <div id="container-draw-item"><img src="bloxy.jpg" /></div>
+          <div class="container-draw-item"><img src="bloxy.jpg" onclick="AppendDraw(0)"><p>Tecle S</p></div>
+          <div class="container-draw-item"><img src="bloxy.jpg" onclick="AppendDraw(1)"><p>Tecle C</p></div>
+          <div class="container-draw-item"><img src="bloxy.jpg" onclick="AppendDraw(2)"><p>Tecle T</p></div>
         </div>
       </div>
       <div style="width: 860px">
         <canvas id="imagespace" width="800" height="600"></canvas>
       </div>
       <div style="width: 335px">
+        <div id="container-items" style="min-height: 50px">
+          <div id="container-items-info" style="order:-999999;">
+            <button>+</button>
+            <h1>ITEMS</h1>
+          </div>
+          <div class="container-items-item" style="display: none;"> <!--style="display: none;"-->
+            <img src="images/logo32x32.jpg" />
+            <p>Lorem ipsum dolor sit amet</p>
+            <img src="images/lixeira.png">
+            <input type="number" value="0" onchange="profileData['Projetos'][ProjectName]['items'][this.parentElement.getAttribute('name')]['ordem'] = parseInt(this.value); LoadProject('imagem')">
+          </div>
+        </div>
         <div id="container-selected" style="min-height: 50px">
           <h1>NOME</h1>
           <div>
@@ -74,18 +82,6 @@
               <h2>Borda:</h2>
               <input type="number" oninput="changePropriet(this, 'border-radius')">
             </div>
-          </div>
-        </div>
-        <div id="container-items" style="min-height: 50px">
-          <div id="container-items-info" style="order:-999999;">
-            <button>+</button>
-            <h1>ITEMS</h1>
-          </div>
-          <div class="container-items-item" style="display: none;"> <!--style="display: none;"-->
-            <img src="images/logo32x32.jpg" />
-            <p>Lorem ipsum dolor sit amet</p>
-            <img src="images/lixeira.png">
-            <input type="number" value="0" onchange="profileData['Projetos'][ProjectName]['items'][this.parentElement.getAttribute('name')]['ordem'] = parseInt(this.value); LoadProject('imagem')">
           </div>
         </div>
       </div>
