@@ -1,21 +1,21 @@
 @font-face {
-  font-family: 'Fredoka-Light';
-  src: url('Fredoka/static/Fredoka-Light.ttf') format('truetype');
+  font-family: "Fredoka-Light";
+  src: url("Fredoka/static/Fredoka-Light.ttf") format("truetype");
   font-weight: 300;
 }
 @font-face {
-  font-family: 'Fredoka-Bold';
-  src: url('Fredoka/static/Fredoka-Bold.ttf') format('truetype');
+  font-family: "Fredoka-Bold";
+  src: url("Fredoka/static/Fredoka-Bold.ttf") format("truetype");
   font-weight: 700;
 }
 @font-face {
-  font-family: 'Roboto-Light';
-  src: url('Roboto/static/Roboto-Light.ttf') format('truetype');
+  font-family: "Roboto-Light";
+  src: url("Roboto/static/Roboto-Light.ttf") format("truetype");
   font-weight: 300;
 }
 @font-face {
-  font-family: 'Roboto-Bold';
-  src: url('Roboto/static/Roboto-Bold.ttf') format('truetype');
+  font-family: "Roboto-Bold";
+  src: url("Roboto/static/Roboto-Bold.ttf") format("truetype");
   font-weight: 700;
 }
 
@@ -23,42 +23,42 @@
   --primario: #2563eb;
   --secundario: #325fc0;
   --branco: #ffffff;
-  --branco2: #E5E7EB;
+  --branco2: #e5e7eb;
   --cinza: #4b5563;
   --text: #1f2937;
   --titlefont1: "Fredoka-Light";
   --titlefont2: "Fredoka-Bold";
   --textfont1: "Roboto-Light";
   --textfont2: "Roboto-Bold";
-  --bright: 80%
+  --bright: 80%;
 }
-body > #DefaultHeader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: var(--branco2);
-    height: 10%;
-    width: 100%;
-    margin: 0px;
-    align-items: center;
-    display: flex;
-    z-index: 1000;
+#DefaultHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--branco2);
+  height: 10%;
+  width: 100%;
+  margin: 0px;
+  align-items: center;
+  display: flex;
+  z-index: 1000;
 }
-body > #DefaultHeader > * {
+#DefaultHeader > * {
   margin: 20px;
 }
-body > #DefaultHeader > img {
-    cursor: pointer;
-    height: 90%;
+#DefaultHeader > img {
+  cursor: pointer;
+  height: 90%;
 }
-body > #DefaultHeader > h1 {
-    font-family: var(--titlefont2);
-    margin-block: 10px;
-    text-align: center;
-    width: 10%;
-    font-size: 250%;
+#DefaultHeader > h1 {
+  font-family: var(--titlefont2);
+  margin-block: 10px;
+  text-align: center;
+  width: 10%;
+  font-size: 250%;
 }
-body > #DefaultHeader > a {
+#DefaultHeader > a {
   font-family: var(--titlefont1);
   font-weight: bolder;
   text-decoration: none;
@@ -66,27 +66,27 @@ body > #DefaultHeader > a {
   font-size: 150%;
 }
 #menu {
-    margin: 10px;
+  margin: 10px;
 }
 #logo {
-    margin: 10px;
-    border-radius: 15px;
+  margin: 10px;
+  border-radius: 15px;
 }
 #LogoMenu {
-    height: 10%;
-    margin: 10px;
-    border-radius: 15px;
+  height: 10%;
+  margin: 10px;
+  border-radius: 15px;
 }
 body:has(#menu:hover) #BarraMenu {
-    left: 0px;
-    opacity: 1;
+  left: 0px;
+  opacity: 1;
 }
 body > nav {
-    position: absolute;
-    top: 10%;
-    left: 0;
-    height: 100%;
-    width: 100%;
+  position: absolute;
+  top: 10%;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 footer {
   background: #fff;
