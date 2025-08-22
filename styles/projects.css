@@ -18,13 +18,16 @@
 }
 
 .projects-scroll::-webkit-scrollbar-track {
-  background-color: var(--branco);
+  background-color: var(--branco2);
 }
 
-body > nav {
-  padding-top: 20px;
-  background-color: var(--branco);
+body {
+  min-height: 100vh;
   overflow: hidden;
+}
+body > nav {
+    padding: 40px;
+  background-color: var(--branco);
 }
 
 .main-layout {
@@ -37,7 +40,8 @@ body > nav {
 }
 
 .container {
-  background-color: var(--secundario);
+  background-color: var(--branco);
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
   padding: 20px;
   height: 100%;
@@ -47,14 +51,9 @@ body > nav {
 .projects-container {
   width: 70%;
   min-height: 500px;
-  height: 90vh;
+  height: 75vh;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
 }
-
-.filters-container {
-  width: 20%;
-  min-height: 500px;
-}
-
 .header {
   display: flex;
   align-items: center;
@@ -115,44 +114,6 @@ body > nav {
 .project-card:hover {
   filter: brightness(var(--bright));
 }
-
-.filters {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.filter-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.filter-title {
-  font-weight: bold;
-  color: #fff;
-  margin-bottom: 5px;
-}
-
-.filter-option {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background-color: var(--azul);
-  border-radius: 8px;
-  padding: 10px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.filter-option:hover {
-  background-color: var(--azul);
-}
-
-.filter-option input {
-  accent-color: var(--azul);
-  cursor: pointer;
-}
 .btn {
   margin: 10px;
   border-radius: 10px;
@@ -162,9 +123,11 @@ body > nav {
   font-weight: bold;
   transition: 0.05s ease;
   cursor: pointer;
+  background-color: var(--primario);
+  color: var(--branco);
 }
 .btn:hover {
-  filter: var(--bright);
+  filter: brightness(var(--bright));
 }
 #BarraMenu > ul > li:nth-child(3) > a {
   text-decoration: underline;
