@@ -15,69 +15,126 @@
     <div class="content">
       <div class="main">
         <h1>Explicação das Ferramentas</h1>
-        <div class="to  ol-box">
+        <div class="tool-box">
 
           <div class="tool-item">
-            <h2 onclick="toggleTool(this.parentElement)">Texto</h2>
+            <div class="tool-header" onclick="toggleTool(this.parentElement)">
+              <h2>Formas</h2>
+              <div class="arrow">▶</div>
+            </div>
             <div class="tool-content">
-              <p>Permite adicionar palavras ou frases sobre a imagem, ideal para legendas ou títulos. O texto aparece como uma camada separada e pode ser posicionado livremente.</p>
-              <div class="image-space" onclick="addImage(this)"></div>
+              <div class="content-text">
+                <p>São as formas que aparecem a esquerda(circulo e quadrado)Permite adicionar formas geométricas como círculos e quadrados, à imagem.
+                   Ideal para criar elementos estruturais e composições organizadas.</p>
+              </div>
+              <div class="image-space">
+                <img src="imagens/formas.png" alt="Ferramenta de Formas">
+              </div>
             </div>
           </div>
 
           <div class="tool-item">
-            <h2 onclick="toggleTool(this.parentElement)">Saturação</h2>
+            <div class="tool-header" onclick="toggleTool(this.parentElement)">
+              <h2>Imagem por IA</h2>
+              <div class="arrow">▶</div>
+            </div>
             <div class="tool-content">
-              <p>Controla a intensidade das cores da imagem. Ao mover o controle para a direita, as cores ficam mais vivas. Ideal para realçar emoções e climas da arte.</p>
-              <div class="image-space" onclick="addImage(this)"></div>
+              <div class="content-text">
+                <p>Ao clicar em mais itens a um botão chamado Imagem por Ia .Gera imagens usando inteligência artificial baseada em descrições textuais(em inglês). Permite criar elementos únicos e personalizados para suas composições artísticas.</p>
+              </div>
+              <div class="image-space">
+                <img src="imagens/IA.png" alt="Ferramenta de IA">
+              </div>
             </div>
           </div>
 
           <div class="tool-item">
-            <h2 onclick="toggleTool(this.parentElement)">Brilho</h2>
+            <div class="tool-header" onclick="toggleTool(this.parentElement)">
+              <h2>Adicionar Imagem</h2>
+              <div class="arrow">▶</div>
+            </div>
             <div class="tool-content">
-              <p>Altera o nível de iluminação da imagem. Pode clarear ou escurecer, facilitando a criação de atmosferas mais suaves ou dramáticas.</p>
-              <div class="image-space" onclick="addImage(this)"></div>
+              <div class="content-text">
+                <p>É um botão que aparece nos itens.Importa imagens do seu computador para usar como base ou elementos em sua composição. Suporta diversos formatos de imagem.</p>
+              </div>
+              <div class="image-space">
+                <img src="imagens/imagem.png" alt="Ferramenta de Adicionar Imagem">
+              </div>
             </div>
           </div>
 
           <div class="tool-item">
-            <h2 onclick="toggleTool(this.parentElement)">Balde de Tinta</h2>
+            <div class="tool-header" onclick="toggleTool(this.parentElement)">
+              <h2>Painel de Efeitos</h2>
+              <div class="arrow">▶</div>
+            </div>
             <div class="tool-content">
-              <p>Preenche áreas fechadas com a cor selecionada, ótimo para criar fundos uniformes ou aplicar cores rapidamente.</p>
-              <div class="image-space" onclick="addImage(this)"></div>
+              <div class="content-text">
+                <p>Fica no canto superior esquerdo. Quando a imagem é adicionada os efeitos aparecem à esquerda. Voce controla a intensidade aplicada de acordo com o numero.</p>
+              </div>
+              <div class="image-space">
+                <img src="imagens/painel de efeitos.png" alt="Painel de Efeitos">
+              </div>
             </div>
           </div>
 
           <div class="tool-item">
-            <h2 onclick="toggleTool(this.parentElement)">Pincel</h2>
+            <div class="tool-header" onclick="toggleTool(this.parentElement)">
+              <h2>Borda</h2>
+              <div class="arrow">▶</div>
+            </div>
             <div class="tool-content">
-              <p>Ferramenta de desenho livre que permite criar traços personalizados na imagem, com controle de espessura e cor.</p>
-              <div class="image-space" onclick="addImage(this)"></div>
+              <div class="content-text">
+                <p>A função borda deixa a imagem mais redonda. Permite ajustar o arredondamento das bordas para criar diferentes estilos visuais e suavizar as transições entre elementos.</p>
+              </div>
+              <div class="image-space">
+                <img src="imagens/borda.png" alt="Ferramenta de Borda">
+              </div>
             </div>
           </div>
 
           <div class="tool-item">
-            <h2 onclick="toggleTool(this.parentElement)">Borracha</h2>
+            <div class="tool-header" onclick="toggleTool(this.parentElement)">
+              <h2>Cor</h2>
+              <div class="arrow">▶</div>
+            </div>
             <div class="tool-content">
-              <p>Apaga partes específicas da imagem. Funciona de forma parecida com o pincel, mas remove em vez de adicionar.</p>
-              <div class="image-space" onclick="addImage(this)"></div>
+              <div class="content-text">
+                <p>Esta função muda a cor do objeto selecionado. Permite alterar a tonalidade, saturação e matiz de elementos específicos da imagem, criando diferentes estilos visuais e correções de cor.</p>
+              </div>
+              <div class="image-space">
+                <img src="imagens/cor.png" alt="Ferramenta de Cor">
+              </div>
             </div>
           </div>
 
           <div class="tool-item">
-            <h2 onclick="toggleTool(this.parentElement)">Painel de Efeitos</h2>
+            <div class="tool-header" onclick="toggleTool(this.parentElement)">
+              <h2>Texto</h2>
+              <div class="arrow">▶</div>
+            </div>
             <div class="tool-content">
-              <p>Fica no canto superior direito. Sempre que um efeito é clicado, seu nome aparece lá. Um controle deslizante abaixo ajusta a intensidade aplicada.</p>
-              <div class="image-space" onclick="addImage(this)"></div>
+              <div class="content-text">
+                <p>Permite adicionar palavras ou frases sobre a imagem, ideal para legendas ou títulos. O texto aparece como uma camada separada e pode ser posicionado livremente.</p>
+              </div>
+              <div class="image-space">
+                <img src="imagens/texto.png" alt="Ferramenta de Texto">
+              </div>
             </div>
           </div>
 
           <div class="tool-item">
-            <h2 onclick="toggleTool(this.parentElement)">Camadas</h2>
+            <div class="tool-header" onclick="toggleTool(this.parentElement)">
+              <h2>Camadas</h2>
+              <div class="arrow">▶</div>
+            </div>
             <div class="tool-content">
-              <p>Organiza elementos da imagem em diferentes níveis, facilitando o controle e a edição independente de cada parte da arte.</p>
-              <div class="image-space" onclick="addImage(this)"></div>
+              <div class="content-text">
+                <p>Organiza elementos da imagem em diferentes níveis, facilitando o controle e a edição independente de cada parte da arte.</p>
+              </div>
+              <div class="image-space">
+                <img src="imagens/camadas.png" alt="Ferramenta de Camadas">
+              </div>
             </div>
           </div>
 
@@ -87,42 +144,28 @@
   </nav>
 
   <script>
+    
     function toggleTool(toolItem) {
       const content = toolItem.querySelector('.tool-content');
-      const isCollapsed = toolItem.classList.contains('collapsed');
+      const arrow = toolItem.querySelector('.arrow');
       
-      if (isCollapsed) {
-        toolItem.classList.remove('collapsed');
-        content.classList.remove('collapsed');
+      if (content.style.display === 'none') {
+        content.style.display = 'flex';
+        arrow.textContent = '▼';
       } else {
-        toolItem.classList.add('collapsed');
-        content.classList.add('collapsed');
+        content.style.display = 'none';
+        arrow.textContent = '▶';
       }
     }
 
-    function addImage(imageSpace) {
-      const input = document.createElement('input');
-      input.type = 'file';
-      input.accept = 'image/*';
-      input.onchange = function(e) {
-        const file = e.target.files[0];
-        if (file) {
-          const reader = new FileReader();
-          reader.onload = function(e) {
-            imageSpace.innerHTML = `<img src="${e.target.result}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">`;
-          };
-          reader.readAsDataURL(file);
-        }
-      };
-      input.click();
-    }
-
+    
     document.addEventListener('DOMContentLoaded', function() {
       const toolItems = document.querySelectorAll('.tool-item');
       toolItems.forEach(item => {
-        item.classList.remove('collapsed');
         const content = item.querySelector('.tool-content');
-        content.classList.remove('collapsed');
+        const arrow = item.querySelector('.arrow');
+        content.style.display = 'none';
+        arrow.textContent = '▶';
       });
     });
   </script>
