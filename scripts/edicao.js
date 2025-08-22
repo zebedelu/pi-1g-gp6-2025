@@ -6,6 +6,16 @@ const efeitos = {
   Saturação: ["number",0, -10, 10],
   ["Inverter Cores"]: ["boolean", false],
 };
+
+// Mapeamento de efeitos para ícones Font Awesome
+const efeitosIcones = {
+  Brilho: '<i class="fa-solid fa-sun"></i>',
+  Desfoque: '<i class="fa-solid fa-chess-board"></i>',
+  Contraste: '<i class="fa-solid fa-circle-half-stroke"></i>',
+  "Escala preto e branco": '<img src="images/preto e branco.png" alt="Preto e Branco" style="width: 40px; height: 40px; object-fit: cover; border-radius: 15px;">',
+  Saturação: '<i class="fa-solid fa-palette"></i>',
+  "Inverter Cores": '<img src="images/inverter cores.png" alt="Inverter Cores" style="width: 40px; height: 40px; object-fit: cover; border-radius: 15px;">'
+};
 var ProjectName = window.location.search.slice(1, LimitCharsInName);
 var ProjectOpen;
 
@@ -293,8 +303,27 @@ async function LoadProject(parttoload) {
         let effectContainer = document
           .getElementById("container-efeito")
           .cloneNode(true);
+        
+        // Substituir a imagem pelo ícone correspondente
+        let imgElement = effectContainer.querySelector("#container-efeito-img");
+        if (efeitosIcones[efeito]) {
+          if (imgElement) {
+            imgElement.outerHTML = efeitosIcones[efeito];
+          } else {
+            // Se não encontrar a imagem, inserir o ícone no início
+            effectContainer.insertAdjacentHTML('afterbegin', efeitosIcones[efeito]);
+          }
+        }
+        
         effectContainer.querySelector("h1").textContent = efeito;
         effectContainer.style.display = "flex";
+        
+        // Garantir que o ícone esteja no início do container
+        let iconElement = effectContainer.querySelector('i');
+        if (iconElement) {
+          effectContainer.insertBefore(iconElement, effectContainer.firstChild);
+        }
+        
         document
           .getElementById("container-efeitos")
           .appendChild(effectContainer);
