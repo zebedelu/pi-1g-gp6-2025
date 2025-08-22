@@ -176,7 +176,7 @@ main > div {
   display: flex;
   flex-wrap: wrap;
   width: 95%;
-  height: 20%;
+  height: 40%;
   margin: 10px;
   border-radius: 5px;
   overflow-x: auto;
@@ -194,6 +194,7 @@ main > div {
   cursor: pointer;
 }
 .container-draw-item p {
+  color: var(--branco);
   display: none;
 }
 .container-draw-item:hover p {
@@ -390,3 +391,4 @@ input[type=number]::-webkit-outer-spin-button {
   height: 100%;
 
 }
+
