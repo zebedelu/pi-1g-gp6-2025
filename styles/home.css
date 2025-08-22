@@ -33,6 +33,7 @@ body {
 .buttons a {
   padding: 25px 40px;
   font-family: var(--titlefont1);
+  background-color: var(--primario);
   border: none;
   border-radius: 20px;
   font-weight: bolder;
