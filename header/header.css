@@ -99,3 +99,48 @@ footer nav a {
   margin: 0 8px;
   color: var(--text);
 }
+
+#dialog {
+  position: absolute;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.3);
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+}
+#dialog > div {
+  max-width: 30%;
+  padding: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--branco);
+  border-radius: 10px;
+  flex-direction: column;
+  display: flex;
+}
+#dialog > div > p {
+  margin: 20px;
+  font-size: 200%;
+  font-family: var(--titlefont1);
+  color: var(--text-color1);
+}
+#dialog > div > button {
+  color: var(--text-color2);
+  font-size: 130%;
+  font-family: var(--titlefont1);
+  padding: 15px;
+  margin-block: 10px;
+  margin-inline: 20px;
+  background-color: var(--primario);
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+#dialog > div > button:hover {
+  background-color: var(--cinza);
+}
