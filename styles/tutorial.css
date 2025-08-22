@@ -1,22 +1,20 @@
 body {
     margin: 0;
-    background: #f8fafc;
+    background: var(--branco);
     color: #1c1c1c;
     min-height: 100vh;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--titlefont2);
 }
 
 .content {
     display: flex;
     justify-content: center;
     padding: 30px 20px;
-    min-height: calc(100vh - 60px);
 }
 
 .main {
-    max-width: 1200px;
-    width: 100%;
-    background: #ffffff;
+    width: 70%;
+    background: var(--branco);
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     padding: 40px;
@@ -26,7 +24,6 @@ body {
 .main h1 {
     text-align: center;
     color: #1e3a8a;
-    margin-bottom: 40px;
     font-size: 2.5em;
     font-weight: 700;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -35,7 +32,7 @@ body {
 .tool-box {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 20px;
 }
 
 .tool-item {
@@ -51,29 +48,29 @@ body {
 }
 
 .tool-item:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    transform: scale(1.005);
+    filter: brightness(var(--bright))
 }
 
 .tool-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 30px;
-    background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+    padding: 15px 30px;
+    background: linear-gradient(135deg, var(--primario) 0%, var(--secundario) 100%);
     color: white;
     user-select: none;
     cursor: pointer;
-    transition: background 0.3s ease;
 }
 
 .tool-header:hover {
-    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    background: linear-gradient(135deg, var(--primario) 0%, var(--secundario) 100%);
 }
 
 .tool-header h2 {
     margin: 0;
-    color: white;
+    font-family: var(--textfont2);
+    color: var(--branco);
     font-size: 1.4em;
     font-weight: 600;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
@@ -82,9 +79,8 @@ body {
 .arrow {
     font-size: 1.2em;
     font-weight: bold;
-    color: white;
+    color: var(--branco);
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
 }
 
 .tool-content {
@@ -92,7 +88,7 @@ body {
     padding: 30px;
     gap: 30px;
     align-items: flex-start;
-    background: #ffffff;
+    background: var(--branco2);
 }
 
 .content-text {
@@ -111,8 +107,8 @@ body {
 .image-space {
     width: 280px;
     height: 180px;
-    background: #f1f5f9;
-    border: 2px dashed #cbd5e1;
+    background: var(--branco);
+    border: 2px dashed var(--cinza);
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -136,9 +132,4 @@ body {
     object-fit: contain;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.image-space img:hover {
-    transform: scale(1.05);
 }
