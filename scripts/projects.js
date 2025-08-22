@@ -87,9 +87,19 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("newtempproject").addEventListener("click", () => {
     main(true);
   });
-  document.getElementById("clearProjects").addEventListener("click", async () => {
-    await WriteStore(dbs[0], estrutura);
-    await UpdateProjects();
-    window.location.reload();
+  document.getElementById("clearProjects").addEventListener("click", () => {
+    dialog("Deseja realmente apagar TUDO?", ["Sim","Não"], {Enter:true, Escape:true}, async (escolha)=>{
+      if (escolha == 0) {
+        setTimeout(()=>{
+          dialog("Confirme novamente que deseja apagar TUDO", ["Não","Sim"], {Escape:true, Enter:true}, async (escolha1)=>{
+            if (escolha1 == 1) {
+              await WriteStore(dbs[0], estrutura);
+              await UpdateProjects();
+              window.location.reload();
+            }
+          })
+        },100)
+      }
+    })
   });
 });

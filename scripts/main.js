@@ -17,6 +17,44 @@ var imageData;
 
 let db = null;
 
+function dialog(paragrafo, lista_buttons, keys, callback) {
+  // detectar teclas
+  function keyHandler(keypressed) {
+    if (Object.keys(keys).includes(keypressed.key)) {
+      let index = Object.keys(keys).indexOf(keypressed.key);
+      if (index >= 0) call(index);
+    }
+  }
+
+  // função de retorno com a opção escolhida
+  function call(i) {
+    callback(i);
+    dialogEl.style.zIndex = -1;
+    document.removeEventListener("keydown", keyHandler);
+  }
+
+  let dialogEl = document.getElementById("dialog"); // Renomeado
+  dialogEl.style.zIndex = 9999;
+  dialogEl.querySelector("div").innerHTML = "<p></p>";
+  dialogEl.querySelector("p").textContent = paragrafo;
+
+  document.addEventListener("keydown", keyHandler);
+
+  for (let i = 0; i < lista_buttons.length; i++) {
+    let buttonelement = document.createElement("button");
+    buttonelement.innerHTML =
+      lista_buttons[i] +
+      " <span style='font-size: 50%;'>(" +
+      Object.keys(keys)[i] +
+      ")</span>";
+    dialogEl.querySelector("div").appendChild(buttonelement);
+
+    buttonelement.addEventListener("click", () => {
+      call(i);
+    });
+  }
+}
+
 function moverItemNoObjeto(objeto, chave, direcao) {
   // Converte o objeto em um array de entradas [chave, valor]
   const entradas = Object.entries(objeto);
