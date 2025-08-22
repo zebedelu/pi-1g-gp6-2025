@@ -18,64 +18,113 @@
         <div class="tool-box">
 
           <div class="tool-item">
-            <h2>Texto</h2>
-              <div class="interior">
-                <p>Permite adicionar palavras ou frases sobre a imagem, ideal para legendas ou títulos. O texto aparece como uma camada separada e pode ser posicionado livremente.</p>
-              </div>
-          </div>
-
-          <div class="tool-item">
-            <h2>Saturação</h2>
-              <div class="interior">
-                <p>Controla a intensidade das cores da imagem. Ao mover o controle para a direita, as cores ficam mais vivas. Ideal para realçar emoções e climas da arte.</p>
-              </div>
-          </div>
-
-          <div class="tool-item">
-            <h2>Brilho</h2>
-              <div class="interior">
-                <p>Altera o nível de iluminação da imagem. Pode clarear ou escurecer, facilitando a criação de atmosferas mais suaves ou dramáticas.</p>
-              </div>
-          </div>
-
-          <div class="tool-item">
-            <h2>Balde de Tinta</h2>
-              <div class="interior">
-                <p>Preenche áreas fechadas com a cor selecionada, ótimo para criar fundos uniformes ou aplicar cores rapidamente.</p>
+            <h2 onclick="toggleTool(this.parentElement)">Texto</h2>
+            <div class="tool-content">
+              <p>Permite adicionar palavras ou frases sobre a imagem, ideal para legendas ou títulos. O texto aparece como uma camada separada e pode ser posicionado livremente.</p>
+              <div class="image-space" onclick="addImage(this)"></div>
             </div>
           </div>
 
           <div class="tool-item">
-            <h2>Pincel</h2>
-              <div class="interior">
-                <p>Ferramenta de desenho livre que permite criar traços personalizados na imagem, com controle de espessura e cor.</p>
+            <h2 onclick="toggleTool(this.parentElement)">Saturação</h2>
+            <div class="tool-content">
+              <p>Controla a intensidade das cores da imagem. Ao mover o controle para a direita, as cores ficam mais vivas. Ideal para realçar emoções e climas da arte.</p>
+              <div class="image-space" onclick="addImage(this)"></div>
             </div>
           </div>
 
           <div class="tool-item">
-            <h2>Borracha</h2>
-              <div class="interior">
-                <p>Apaga partes específicas da imagem. Funciona de forma parecida com o pincel, mas remove em vez de adicionar.</p>
+            <h2 onclick="toggleTool(this.parentElement)">Brilho</h2>
+            <div class="tool-content">
+              <p>Altera o nível de iluminação da imagem. Pode clarear ou escurecer, facilitando a criação de atmosferas mais suaves ou dramáticas.</p>
+              <div class="image-space" onclick="addImage(this)"></div>
             </div>
           </div>
 
           <div class="tool-item">
-            <h2>Painel de Efeitos</h2>
-              <div class="interior">
-                <p>Fica no canto superior direito. Sempre que um efeito é clicado, seu nome aparece lá. Um controle deslizante abaixo ajusta a intensidade aplicada.</p>
+            <h2 onclick="toggleTool(this.parentElement)">Balde de Tinta</h2>
+            <div class="tool-content">
+              <p>Preenche áreas fechadas com a cor selecionada, ótimo para criar fundos uniformes ou aplicar cores rapidamente.</p>
+              <div class="image-space" onclick="addImage(this)"></div>
             </div>
           </div>
 
           <div class="tool-item">
-            <h2>Camadas</h2>
-              <div class="interior">
-                <p>Organiza elementos da imagem em diferentes níveis, facilitando o controle e a edição independente de cada parte da arte.</p>
-              </div>
+            <h2 onclick="toggleTool(this.parentElement)">Pincel</h2>
+            <div class="tool-content">
+              <p>Ferramenta de desenho livre que permite criar traços personalizados na imagem, com controle de espessura e cor.</p>
+              <div class="image-space" onclick="addImage(this)"></div>
+            </div>
+          </div>
+
+          <div class="tool-item">
+            <h2 onclick="toggleTool(this.parentElement)">Borracha</h2>
+            <div class="tool-content">
+              <p>Apaga partes específicas da imagem. Funciona de forma parecida com o pincel, mas remove em vez de adicionar.</p>
+              <div class="image-space" onclick="addImage(this)"></div>
+            </div>
+          </div>
+
+          <div class="tool-item">
+            <h2 onclick="toggleTool(this.parentElement)">Painel de Efeitos</h2>
+            <div class="tool-content">
+              <p>Fica no canto superior direito. Sempre que um efeito é clicado, seu nome aparece lá. Um controle deslizante abaixo ajusta a intensidade aplicada.</p>
+              <div class="image-space" onclick="addImage(this)"></div>
+            </div>
+          </div>
+
+          <div class="tool-item">
+            <h2 onclick="toggleTool(this.parentElement)">Camadas</h2>
+            <div class="tool-content">
+              <p>Organiza elementos da imagem em diferentes níveis, facilitando o controle e a edição independente de cada parte da arte.</p>
+              <div class="image-space" onclick="addImage(this)"></div>
+            </div>
           </div>
 
         </div>
       </div>
     </div>
   </nav>
+
+  <script>
+    function toggleTool(toolItem) {
+      const content = toolItem.querySelector('.tool-content');
+      const isCollapsed = toolItem.classList.contains('collapsed');
+      
+      if (isCollapsed) {
+        toolItem.classList.remove('collapsed');
+        content.classList.remove('collapsed');
+      } else {
+        toolItem.classList.add('collapsed');
+        content.classList.add('collapsed');
+      }
+    }
+
+    function addImage(imageSpace) {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'image/*';
+      input.onchange = function(e) {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            imageSpace.innerHTML = `<img src="${e.target.result}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">`;
+          };
+          reader.readAsDataURL(file);
+        }
+      };
+      input.click();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const toolItems = document.querySelectorAll('.tool-item');
+      toolItems.forEach(item => {
+        item.classList.remove('collapsed');
+        const content = item.querySelector('.tool-content');
+        content.classList.remove('collapsed');
+      });
+    });
+  </script>
 </body>
 </html>
