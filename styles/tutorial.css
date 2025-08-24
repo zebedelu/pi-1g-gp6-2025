@@ -3,7 +3,6 @@ body {
     background: var(--branco);
     color: #1c1c1c;
     min-height: 100vh;
-    font-family: var(--titlefont2);
 }
 
 .content {
@@ -22,6 +21,7 @@ body {
 }
 
 .main h1 {
+    font-family: var(--titlefont2);
     text-align: center;
     color: #1e3a8a;
     font-size: 2.5em;
@@ -133,3 +133,4 @@ body {
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
+
