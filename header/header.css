@@ -64,6 +64,10 @@
   text-decoration: none;
   color: black;
   font-size: 150%;
+  transition: 0.1s ease;
+}
+#DefaultHeader > a:hover {
+  color: var(--primario);
 }
 #menu {
   margin: 10px;
@@ -143,4 +147,5 @@ footer nav a {
 }
 #dialog > div > button:hover {
   background-color: var(--cinza);
+
 }
