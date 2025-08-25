@@ -10,10 +10,9 @@ body {
     justify-content: center;
     padding: 30px 20px;
 }
-
 .main {
     width: 70%;
-    background: var(--branco);
+    background: transparent;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     padding: 40px;
@@ -110,15 +109,16 @@ body {
     width: 280px;
     height: 180px;
     background: var(--branco);
-    border: 2px dashed var(--cinza);
+    border: 2px solid #e2e8f0; 
     border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07); 
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
     position: relative;
     overflow: hidden;
-    padding: 20px;
+    padding: 0px;
 }
 
 .image-placeholder {
