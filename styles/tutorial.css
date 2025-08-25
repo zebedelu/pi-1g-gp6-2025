@@ -16,7 +16,10 @@ body {
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     padding: 40px;
+    margin-bottom: 200px;
+    margin-top: 140px;
     border: 1px solid #e2e8f0;
+    min-height: 120vh;
 }
 
 .main h1 {
@@ -36,7 +39,7 @@ body {
 }
 
 .tool-item {
-    background: transparent;
+    background: #f8fafc;
     border-left: 6px solid #0284c7;
     padding: 0;
     border-radius: 16px;
@@ -45,6 +48,9 @@ body {
     border: 1px solid #e2e8f0;
     transition: all 0.3s ease;
     transform: scale(1);
+    min-height: 140px;     
+    font-size: 1.08em;  
+    padding: 8px 0;  
 }
 
 .tool-item:hover {
@@ -89,7 +95,7 @@ body {
     padding: 30px;
     gap: 30px;
     align-items: flex-start;
-    bacbackground: transparent;
+    background: var(--branco2);
 }
 
 .content-text {
@@ -108,7 +114,7 @@ body {
 .image-space {
     width: 280px;
     height: 180px;
-    background: transparent;
+    background: var(--branco);
     border: 2px solid #e2e8f0; 
     border-radius: 16px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.07); 
@@ -135,5 +141,4 @@ body {
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
-
 
