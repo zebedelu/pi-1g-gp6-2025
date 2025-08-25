@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -24,7 +25,7 @@
             </div>
             <div class="tool-content">
               <div class="content-text">
-                <p>São as formas que aparecem a esquerda (circulo e quadrado).Permite adicionar formas geométricas como círculos e quadrados, à imagem.
+                <p>São as formas que aparecem a esquerda (circulo e quadrado). Permite adicionar formas geométricas como círculos e quadrados, à imagem.
                    Ideal para criar elementos estruturais e composições organizadas.</p>
               </div>
               <div class="image-space">
@@ -40,8 +41,7 @@
             </div>
             <div class="tool-content">
               <div class="content-text">
-                <p>Ao clicar em mais itens há um botão chamado Imagem por Ia .Gera images usando inteligência artificial 
-                  baseada em descrições textuais (em inglês). Permite criar elementos únicos e personalizados para suas composições artísticas.</p>
+                <p>Ao clicar em mais itens há um botão chamado Imagem por Ia .Gera images usando inteligência artificial baseada em descrições textuais (em inglês). Permite criar elementos únicos e personalizados para suas composições artísticas.</p>
               </div>
               <div class="image-space">
                 <img src="images/IA.png" alt="Ferramenta de IA">
@@ -56,7 +56,7 @@
             </div>
             <div class="tool-content">
               <div class="content-text">
-                <p>É um botão cujo aparece na pagina de itens. Importa imagens do seu computador para usar como base ou elementos em sua composição.</p>
+                <p>É um botão que aparece nos itens.Importa imagens do seu computador para usar como base ou elementos em sua composição. Suporta diversos formatos de imagem.</p>
               </div>
               <div class="image-space">
                 <img src="images/imagem.png" alt="Ferramenta de Adicionar Imagem">
@@ -71,9 +71,7 @@
             </div>
             <div class="tool-content">
               <div class="content-text">
-                <p>Fica no canto superior esquerdo. Quando a imagem é adicionada os efeitos
-                  aparecem à esquerda. Voce controla a intensidade aplicada de acordo com o numero.Você pode trocar
-                  o item onde o efeito sera aplicado apenas apertando no item.</p>
+                <p>Fica no canto superior esquerdo. Quando a imagem é adicionada os efeitos aparecem à esquerda. Voce controla a intensidade aplicada de acordo com o numero.</p>
               </div>
               <div class="image-space">
                 <img src="images/painel de efeitos.png" alt="Painel de Efeitos">
@@ -88,7 +86,7 @@
             </div>
             <div class="tool-content">
               <div class="content-text">
-                <p>A função borda aredonda os cantos da imagem. Permite ajustar o arredondamento das bordas para criar diferentes estilos visuais e suavizar as transições entre elementos.</p>
+                <p>A função borda deixa a imagem mais redonda. Permite ajustar o arredondamento das bordas para criar diferentes estilos visuais e suavizar as transições entre elementos.</p>
               </div>
               <div class="image-space">
                 <img src="images/borda.png" alt="Ferramenta de Borda">
@@ -160,7 +158,6 @@
         arrow.textContent = '▶';
       }
     }
-
     
     document.addEventListener('DOMContentLoaded', function() {
       const toolItems = document.querySelectorAll('.tool-item');
@@ -171,9 +168,49 @@
         arrow.textContent = '▶';
       });
     });
+    const toolItems = document.querySelectorAll('.tool-item');
+
+function getClosestToCenter() {
+  let closest = null;
+  let closestDistance = Infinity;
+
+  toolItems.forEach(item => {
+    const rect = item.getBoundingClientRect();
+    const cardCenter = rect.top + rect.height / 2;
+    const windowCenter = window.innerHeight / 2;
+    const distance = Math.abs(cardCenter - windowCenter);
+
+    if (distance < closestDistance) {
+      closestDistance = distance;
+      closest = item;
+    }
+  });
+
+  return closest;
+}
+
+function updateCardsOnScroll() {
+  const closest = getClosestToCenter();
+
+  toolItems.forEach(item => {
+    const content = item.querySelector('.tool-content');
+    const arrow = item.querySelector('.arrow');
+    if (item === closest) {
+      content.style.display = 'flex';
+      arrow.textContent = '▼';
+    } else {
+      content.style.display = 'none';
+      arrow.textContent = '▶';
+    }
+  });
+}
+
+window.addEventListener('scroll', updateCardsOnScroll);
+window.addEventListener('resize', updateCardsOnScroll);
+
+document.addEventListener('DOMContentLoaded', updateCardsOnScroll);
   </script>
 </body>
 </html>
-
 
 
