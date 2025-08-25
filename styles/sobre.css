@@ -142,6 +142,9 @@
   align-items: center;
   gap: 20px;
   font-family: Arial, sans-serif;
+  justify-content: center;
+  padding-left: 600px;
+  padding-bottom: 60px;
 }
 
 .developers img {
@@ -165,4 +168,5 @@
 
 .developers a:hover {
   color: #0366d6;
+
 }
