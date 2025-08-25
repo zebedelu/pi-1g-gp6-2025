@@ -55,7 +55,6 @@
   font-family: var(--titlefont2);
   margin-block: 10px;
   text-align: center;
-  width: 10%;
   font-size: 250%;
 }
 #DefaultHeader > a {
@@ -149,3 +148,4 @@ footer nav a {
   background-color: var(--cinza);
 
 }
+
