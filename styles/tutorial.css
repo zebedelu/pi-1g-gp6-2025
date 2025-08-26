@@ -1,32 +1,32 @@
 body {
     margin: 0;
-    background: var(--branco);
+    background: #f8fafc;
     color: #1c1c1c;
     min-height: 100vh;
-    font-family: 'Poppins', Arial, Helvetica, sans-serif; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .content {
     display: flex;
     justify-content: center;
     padding: 30px 20px;
+    min-height: calc(100vh - 60px);
 }
+
 .main {
-    width: 70%;
-    background: transparent;
+    max-width: 1200px;
+    width: 100%;
+    background: #ffffff;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     padding: 40px;
-    margin-bottom: 200px;
-    margin-top: 140px;
     border: 1px solid #e2e8f0;
-    min-height: 120vh;
 }
 
 .main h1 {
-    font-family: 'Poppins', Arial, Helvetica, sans-serif; 
     text-align: center;
     color: #1e3a8a;
-    letter-spacing: 1px;
+    margin-bottom: 40px;
     font-size: 2.5em;
     font-weight: 700;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -35,7 +35,7 @@ body {
 .tool-box {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 25px;
 }
 
 .tool-item {
@@ -48,37 +48,33 @@ body {
     border: 1px solid #e2e8f0;
     transition: all 0.3s ease;
     transform: scale(1);
-    min-height: 140px;     
-    font-size: 1.08em;  
-    padding: 8px 0;  
 }
 
 .tool-item:hover {
-    transform: scale(1.005);
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.10);
+    transform: scale(1.02);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
 .tool-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    background: linear-gradient(135deg, var(--primario) 0%, var(--secundario) 100%);
+    padding: 25px 30px;
+    background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
     color: white;
     user-select: none;
     cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 .tool-header:hover {
-    background: linear-gradient(135deg, var(--primario) 0%, var(--secundario) 100%);
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
 }
 
 .tool-header h2 {
     margin: 0;
-    font-family: 'Poppins', Arial, Helvetica, sans-serif; 
-    color: var(--branco);
+    color: white;
     font-size: 1.4em;
-     letter-spacing: 0.5px;
     font-weight: 600;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
@@ -86,8 +82,9 @@ body {
 .arrow {
     font-size: 1.2em;
     font-weight: bold;
-    color: var(--branco);
+    color: white;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
 }
 
 .tool-content {
@@ -95,7 +92,7 @@ body {
     padding: 30px;
     gap: 30px;
     align-items: flex-start;
-    background: var(--branco2);
+    background: #ffffff;
 }
 
 .content-text {
@@ -114,17 +111,16 @@ body {
 .image-space {
     width: 280px;
     height: 180px;
-    background: var(--branco);
-    border: 2px solid #e2e8f0; 
+    background: #f1f5f9;
+    border: 2px dashed #cbd5e1;
     border-radius: 16px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.07); 
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
     position: relative;
     overflow: hidden;
-    padding: 0px;
+    padding: 20px;
 }
 
 .image-placeholder {
@@ -140,5 +136,9 @@ body {
     object-fit: contain;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
+.image-space img:hover {
+    transform: scale(1.05);
+}
