@@ -27,7 +27,7 @@
       <h1 id="Backbtn2">Artephy</h1>
       <button id="disabletemp">Tirar temporario</button>
       <img src="images/config.svg" id="configs">
-      <a href="tutorial.html">tutorial</a>
+      <a href="tutorial.html" style="font-family: var(--titlefont1);">tutorial</a>
     </header>
     <main>
       <div style="width: 310px">
@@ -64,21 +64,21 @@
         <div id="container-selected" style="min-height: 50px">
           <h1>NOME</h1>
           <div>
-            <div>
+            <div id="posPropriet">
               <h2>Posição:</h2>
               <p>x</p>
               <input type="number" onchange="changePropriet(this, 'left')" value="50" step="5"/>
               <p>y</p>
               <input type="number" onchange="changePropriet(this, 'top')" value="50" step="5"/>
             </div>
-            <div>
+            <div id="sizePropriet">
               <h2>Tamanho:</h2>
               <p>x</p>
               <input type="number" onchange="changePropriet(this, 'height')" value="25"/>
               <p>y</p>
               <input type="number" onchange="changePropriet(this, 'width')" value="25"/>
             </div>
-            <div>
+            <div id="corEbordaPropriet">
               <h2>Cor:</h2>
               <input type="color" onchange="changePropriet(this, 'background-color')">
               <h2>Borda:</h2>

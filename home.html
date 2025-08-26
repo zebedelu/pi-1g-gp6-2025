@@ -11,18 +11,22 @@
     <link rel="stylesheet" href="styles/home.css" />
     <link rel="stylesheet" href="styles/sobre.css" />
 
+    <link href="libraries/aos.css" rel="stylesheet">
+    <script src="libraries/aos.js"></script>
+
     <title>Artephy</title>
   </head>
   <body>
     <nav>
       <!-- Seção HOME -->
       <section class="hero" id="home">
-        <h1 style="font-weight: bolder">Crie sua Arte</h1>
+        <h1 style="font-weight: bolder" data-aos="fade-up">Crie sua Arte</h1>
         <div class="buttons">
           <a
             href="#sobre"
             style="text-decoration: none; color: white"
             class="primary"
+            data-aos="fade-up"
             >Saiba Mais</a
           >
         </div>
@@ -31,7 +35,7 @@
       <!-- Seção SOBRE -->
       <section class="artephy-container" id="sobre">
         <div class="left-side">
-          <div class="text-content">
+          <div class="text-content" data-aos="fade-up">
             <div class="about-section">
               <p class="section-title">O que é arte digital</p>
               <p class="section-text">
@@ -43,9 +47,9 @@
               </p>
             </div>
             <div class="text-images">
-              <img src="images/artedigital/hamid.png" />
-              <img src="images/artedigital/mendelbrot.png" />
-              <img src="images/artedigital/refik.png" />
+              <img loading="lazy" src="images/artedigital/hamid.webp" />
+              <img loading="lazy" src="images/artedigital/mendelbrot.webp" />
+              <img loading="lazy" src="images/artedigital/refik.webp" />
             </div>
 
             <div class="about-section">
@@ -58,9 +62,9 @@
               </p>
             </div>
             <div class="text-images">
-              <img src="images/artetradicional/godandman1.png" />
-              <img src="images/artetradicional/davinci.png" />
-              <img src="images/artetradicional/vangogh.jpg" />
+              <img loading="lazy" src="images/artetradicional/godandman1.webp" />
+              <img loading="lazy" src="images/artetradicional/davinci.webp" />
+              <img loading="lazy" src="images/artetradicional/vangogh.webp" />
             </div>
 
             <div class="about-section">
@@ -85,9 +89,9 @@
               </p>
             </div>
             <div class="text-images">
-              <img src="images/extensãodigtrad/impressão.png" />
-              <img src="images/extensãodigtrad/stopmotiom.jpg" />
-              <img src="images/extensãodigtrad/RV.webp" />
+              <img loading="lazy" src="images/extensãodigtrad/impressão.webp" />
+              <img loading="lazy" src="images/extensãodigtrad/stopmotiom.webp" />
+              <img loading="lazy" src="images/extensãodigtrad/RV.webp" />
             </div>
 
             <div class="about-section">
@@ -113,24 +117,26 @@
                       placeholder="Insira seu Prompt"
                     />
                     <button
+                      class="IAbutton"
                       type="button"
                       onclick='
                               document.getElementById("IAimage1").src = "https://image.pollinations.ai/prompt/"+document.getElementById("IAprompt").value;
+                              document.getElementById("IAloadMsg").textContent="Carregando imagem..."
                               '
-                      
                     >
                       Gerar.
                     </button>
                     <p style="color: grey; font-family: var(--textfont1);">Créditos à equipe PollinationsAI</p> 
+                    <p style="color: grey; font-family: var(--textfont1);" id="IAloadMsg"></p> 
                   </div>
-                  <img id="IAimage1" class="IAimage" />
+                  <img loading="lazy" id="IAimage1" class="IAimage" onload="document.getElementById('IAloadMsg').textContent=''" />
                 </div>
               </details>
             </div>
             <div class="text-images">
-              <img src="images/ianaarte/imagem.jpg" />
-              <img src="images/ianaarte/texto.webp" />
-              <img src="images/ianaarte/video.jpg" />
+              <img loading="lazy" src="images/ianaarte/imagem.webp" />
+              <img loading="lazy" src="images/ianaarte/texto.webp" />
+              <img loading="lazy" src="images/ianaarte/video.webp" />
             </div>
 
             <div class="about-section">
@@ -157,7 +163,7 @@
           <div class="right-line"></div>
           <div class="logo-content">
             <div class="logo-container">
-              <img src="images/logo64x64.jpg" class="logo-icon" />
+              <img loading="lazy" src="images/logo64x64.webp" class="logo-icon" />
               <div class="logo-text">Artephy</div>
             </div>
           </div>
@@ -166,22 +172,22 @@
       <section class="developers-container" id="sobre">
         <div class="developers">
             <a href="https://github.com/zebedelu" target="_blank">
-              <img src="images/zebedelu imagem github.png" alt="Foto do usuário">
+              <img loading="lazy" src="images/githubicons/zebedelu imagem github.jpg" alt="Foto do usuário">
             </a>
             <a href="https://github.com/zebedelu" target="_blank">zebedelu</a>
 
             <a href="https://github.com/vini2223" target="_blank">
-              <img src="images/vinicius imagem github.png" alt="Foto do usuário">
+              <img loading="lazy" src="images/githubicons/vinicius imagem github.jpg" alt="Foto do usuário">
             </a>
             <a href="https://github.com/vini2223" target="_blank">vinicius giordani</a>
 
             <a href="https://github.com/GabrielBVanz" target="_blank">
-              <img src="images/gabriel imagem github.jpg" alt="Foto do usuário">
+              <img loading="lazy" src="images/githubicons/gabriel imagem github.jpg" alt="Foto do usuário">
             </a>
             <a href="https://github.com/GabrielBVanz" target="_blank">GabrielBVanz</a>
 
             <a href="https://github.com//HugoCezarRizolliCampagnaro" target="_blank">
-              <img src="images/hugo imagem github.png" alt="Foto do usuário">
+              <img loading="lazy" src="images/githubicons/hugo imagem github.jpg" alt="Foto do usuário">
             </a>
             <a href="https://github.com//HugoCezarRizolliCampagnaro" target="_blank">HugoCezar</a>
           </div>
@@ -191,9 +197,17 @@
           href="projects.html"
           style="text-decoration: none; color: white"
           class="primary"
-          >Comece a Desenhar</a
+          >Comece a criar</a
         >
       </div>
     </nav>
+    <script>
+      AOS.init({
+        offset: 50,
+        duration: 400,
+        easing: "ease",
+        once: true,
+      });
+    </script>
   </body>
 </html>
