@@ -305,7 +305,7 @@ main > div {
   align-content: center;
   width: 70%;
   margin: 5px;
-  padding: 10px;
+  padding-inline: 10px;
   border-radius: 10px;
 }
 #container-selected > div > div > p {

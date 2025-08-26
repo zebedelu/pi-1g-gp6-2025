@@ -1,9 +1,9 @@
 const efeitos = {
-  Brilho: ["number",0, -1, 1],
-  Desfoque: ["number",0, 0, 10],
-  Contraste: ["number",0, -1, 1],
+  Brilho: ["number", 0, -1, 1],
+  Desfoque: ["number", 0, 0, 10],
+  Contraste: ["number", 0, -1, 1],
   ["Escala preto e branco"]: ["boolean", false],
-  Saturação: ["number",0, -10, 10],
+  Saturação: ["number", 0, -10, 10],
   ["Inverter Cores"]: ["boolean", false],
 };
 
@@ -12,9 +12,11 @@ const efeitosIcones = {
   Brilho: '<i class="fa-solid fa-sun"></i>',
   Desfoque: '<i class="fa-solid fa-chess-board"></i>',
   Contraste: '<i class="fa-solid fa-circle-half-stroke"></i>',
-  "Escala preto e branco": '<img src="images/preto e branco.png" alt="Preto e Branco" style="width: 40px; height: 40px; object-fit: cover; border-radius: 15px;">',
+  "Escala preto e branco":
+    '<img src="images/preto e branco.png" alt="Preto e Branco" style="width: 40px; height: 40px; object-fit: cover; border-radius: 15px;">',
   Saturação: '<i class="fa-solid fa-palette"></i>',
-  "Inverter Cores": '<img src="images/inverter cores.png" alt="Inverter Cores" style="width: 40px; height: 40px; object-fit: cover; border-radius: 15px;">'
+  "Inverter Cores":
+    '<img src="images/inverter cores.png" alt="Inverter Cores" style="width: 40px; height: 40px; object-fit: cover; border-radius: 15px;">',
 };
 var ProjectName = window.location.search.slice(1, LimitCharsInName);
 var ProjectOpen;
@@ -22,34 +24,46 @@ var ProjectOpen;
 var imagespace;
 
 function changeName() {
-  dialog("Deseja trocar o nome do projeto?",["Sim","Não"],{ Enter: true, Escape: true }, (option)=>{
-    if (option == 0) {
-      let nome = prompt("Qual nome:")
-      if (nome != null && nome != "") {
-        if (nome.length > 3 && nome.length < 30) {
-          nome = encodeURIComponent(nome)
-          if (!Object.keys(profileData["Projetos"]).includes(nome)) {
-            delete profileData["Projetos"][ProjectName]
+  dialog(
+    "Deseja trocar o nome do projeto?",
+    ["Sim", "Não"],
+    { Enter: true, Escape: true },
+    (option) => {
+      if (option == 0) {
+        let nome = prompt("Qual nome:");
+        if (nome != null && nome != "") {
+          if (nome.length > 3 && nome.length < 30) {
+            nome = encodeURIComponent(nome);
+            if (!Object.keys(profileData["Projetos"]).includes(nome)) {
+              delete profileData["Projetos"][ProjectName];
 
-            ProjectName = nome;
+              ProjectName = nome;
 
-            profileData["Projetos"][ProjectName] = ProjectOpen;
+              profileData["Projetos"][ProjectName] = ProjectOpen;
 
-            WriteStore(dbs[0], profileData);
-            WriteStore(dbs[1], imageData);
+              WriteStore(dbs[0], profileData);
+              WriteStore(dbs[1], imageData);
 
-            window.location.href = "edicao.html?"+nome;
-          } else{
-            alert("Você está colocando o mesmo nome para outro projeto!")
+              window.location.href = "edicao.html?" + nome;
+            } else {
+              alert("Você está colocando o mesmo nome para outro projeto!");
+            }
+          } else {
+            setTimeout(() => {
+              dialog(
+                "O nome tem que ter entre 3 à 30 letras!: " +
+                  nome.length +
+                  " letras",
+                ["Ok"],
+                { Enter: true },
+                () => {}
+              );
+            }, 10);
           }
-        } else {
-          setTimeout(() => {
-            dialog("O nome tem que ter entre 3 à 30 letras!: "+nome.length+" letras",["Ok"],{ Enter: true },()=>{})
-          }, 10);
         }
       }
     }
-  })
+  );
 }
 
 function back() {
@@ -78,8 +92,10 @@ function SaveOnChange(element) {
     ProjectOpen["items"][element.name]["css"]["fontSize"] = element.fontSize;
   } else {
     // salvar height/width para imagens e formas
-    ProjectOpen["items"][element.name]["css"]["height"] = element.height * element.scaleY;
-    ProjectOpen["items"][element.name]["css"]["width"] = element.width * element.scaleX;
+    ProjectOpen["items"][element.name]["css"]["height"] =
+      element.height * element.scaleY;
+    ProjectOpen["items"][element.name]["css"]["width"] =
+      element.width * element.scaleX;
   }
 
   ProjectOpen["items"][element.name]["css"]["scaleX"] = element.scaleX;
@@ -87,7 +103,7 @@ function SaveOnChange(element) {
 
   ProjectOpen["items"][element.name]["css"]["left"] = element.left;
   ProjectOpen["items"][element.name]["css"]["top"] = element.top;
-  
+
   ProjectOpen["items"][element.name]["css"]["rotation"] = element.angle;
 
   ProjectOpen["items"][element.name]["css"]["background-color"] = element.fill;
@@ -115,15 +131,15 @@ function RemoveItem(item) {
 }
 
 async function LoadProject(parttoload) {
-  while (profileData === undefined) await new Promise(r => setTimeout(r, 10));
-  while (imageData === undefined) await new Promise(r => setTimeout(r, 10));
+  while (profileData === undefined) await new Promise((r) => setTimeout(r, 10));
+  while (imageData === undefined) await new Promise((r) => setTimeout(r, 10));
 
   ProjectOpen = profileData["Projetos"][ProjectName];
   if (ProjectOpen["IsTempProject"]) {
     document.getElementById("Backbtn2").style.textDecoration = "line-through";
     document.getElementById("Backbtn2").style.color = "orange";
   } else {
-    document.getElementById("disabletemp").style.display = "none"
+    document.getElementById("disabletemp").style.display = "none";
   }
 
   // camadas
@@ -155,7 +171,9 @@ async function LoadProject(parttoload) {
         }
       }
       cam.setAttribute("onmouseup", "camadaClick(this);");
-      cam.querySelector("input").value = parseInt(ProjectOpen["items"][key]["ordem"])
+      cam.querySelector("input").value = parseInt(
+        ProjectOpen["items"][key]["ordem"]
+      );
       cam
         .querySelectorAll("img")[1]
         .setAttribute("onclick", "RemoveItem(this);");
@@ -174,21 +192,25 @@ async function LoadProject(parttoload) {
 
       if (item["type"] == "img") {
         itemelement = await new Promise((resolve) => {
-          fabric.Image.fromURL(imageData["images"][item["nome"]], (img) => {
-            img.set({
-              left: Number(item["css"]["left"]),
-              top: Number(item["css"]["top"]),
-              scaleX: Number(item["css"]["scaleX"]),
-              scaleY: Number(item["css"]["scaleY"]),
-              angle: Number(item["css"]["rotation"]),
-              selectable: true
-            });
-            resolve(img);
-          }, { crossOrigin: "anonymous" });
+          fabric.Image.fromURL(
+            imageData["images"][item["nome"]],
+            (img) => {
+              img.set({
+                left: Number(item["css"]["left"]),
+                top: Number(item["css"]["top"]),
+                scaleX: Number(item["css"]["scaleX"]),
+                scaleY: Number(item["css"]["scaleY"]),
+                angle: Number(item["css"]["rotation"]),
+                selectable: true,
+              });
+              resolve(img);
+            },
+            { crossOrigin: "anonymous" }
+          );
         });
       } else {
         if (item["css"]["type"] == "text") {
-          itemelement = new fabric.Text(item["css"]["text"],{
+          itemelement = new fabric.Text(item["css"]["text"], {
             left: item["css"]["left"],
             top: item["css"]["top"],
             fill: item["css"]["background-color"],
@@ -198,7 +220,7 @@ async function LoadProject(parttoload) {
             selectable: true,
             scaleX: 1,
             scaleY: 1,
-            lockUniScaling: true
+            lockUniScaling: true,
           });
         } else {
           itemelement = new fabric.Rect({
@@ -221,12 +243,20 @@ async function LoadProject(parttoload) {
       itemelement.name = item["nome"];
       itemelement.camada = item["ordem"];
 
-      if (itemelement.type == 'image') {
+      if (itemelement.type == "image") {
         let filters = [
-          new fabric.Image.filters.Brightness({ brightness: item["efeitos"]["Brilho"][1] }),
-          new fabric.Image.filters.Blur({ blur: item["efeitos"]["Desfoque"][1] }),
-          new fabric.Image.filters.Contrast({ contrast: item["efeitos"]["Contraste"][1] }),
-          new fabric.Image.filters.Saturation({ saturation: item["efeitos"]["Saturação"][1] })
+          new fabric.Image.filters.Brightness({
+            brightness: item["efeitos"]["Brilho"][1],
+          }),
+          new fabric.Image.filters.Blur({
+            blur: item["efeitos"]["Desfoque"][1],
+          }),
+          new fabric.Image.filters.Contrast({
+            contrast: item["efeitos"]["Contraste"][1],
+          }),
+          new fabric.Image.filters.Saturation({
+            saturation: item["efeitos"]["Saturação"][1],
+          }),
         ];
 
         if (item["efeitos"]["Escala preto e branco"][1]) {
@@ -249,6 +279,16 @@ async function LoadProject(parttoload) {
 
   // efeitos
   if (parttoload == "efeitos" || parttoload == "all") {
+    if (document.getElementById("selected") && ProjectOpen["items"][document.getElementById("selected").getAttribute("name")].type === "img") {
+      document.getElementById("posPropriet").style.display = "block";
+      document.getElementById("sizePropriet").style.display = "none";
+      document.getElementById("corEbordaPropriet").style.display = "none";
+    } else {
+      document.getElementById("posPropriet").style.display = "block";
+      document.getElementById("sizePropriet").style.display = "block";
+      document.getElementById("corEbordaPropriet").style.display = "block";
+    }
+
     while (document.getElementById("container-efeitos").children.length > 2) {
       document.getElementById("container-efeitos").lastChild.remove();
     }
@@ -265,7 +305,7 @@ async function LoadProject(parttoload) {
         let effectContainer = document
           .getElementById("container-efeito")
           .cloneNode(true);
-        
+
         // Substituir a imagem pelo ícone correspondente
         let imgElement = effectContainer.querySelector("#container-efeito-img");
         if (efeitosIcones[efeito]) {
@@ -273,30 +313,36 @@ async function LoadProject(parttoload) {
             imgElement.outerHTML = efeitosIcones[efeito];
           } else {
             // Se não encontrar a imagem, inserir o ícone no início
-            effectContainer.insertAdjacentHTML('afterbegin', efeitosIcones[efeito]);
+            effectContainer.insertAdjacentHTML(
+              "afterbegin",
+              efeitosIcones[efeito]
+            );
           }
         }
-        
+
         effectContainer.querySelector("h1").textContent = efeito;
         effectContainer.style.display = "flex";
-        
+
         // Garantir que o ícone esteja no início do container
-        let iconElement = effectContainer.querySelector('i');
+        let iconElement = effectContainer.querySelector("i");
         if (iconElement) {
           effectContainer.insertBefore(iconElement, effectContainer.firstChild);
         }
-        
+
         document
           .getElementById("container-efeitos")
           .appendChild(effectContainer);
-        
-        if (efeitos[efeito][0] == "number"){
-          effectContainer.querySelector("input").value = efeitosIt[efeito][1] * (100/efeitos[efeito][3]);
-          effectContainer.querySelector("input").setAttribute("type","number")
+
+        if (efeitos[efeito][0] == "number") {
+          effectContainer.querySelector("input").value =
+            efeitosIt[efeito][1] * (100 / efeitos[efeito][3]);
+          effectContainer.querySelector("input").setAttribute("type", "number");
         }
 
         if (efeitos[efeito][0] == "boolean") {
-          effectContainer.querySelector("input").setAttribute("type","checkbox")
+          effectContainer
+            .querySelector("input")
+            .setAttribute("type", "checkbox");
           effectContainer.querySelector("input").checked = efeitosIt[efeito][1];
         }
 
@@ -317,28 +363,34 @@ async function LoadProject(parttoload) {
 
 function ChangeEffect(elementoinput, indice) {
   // limite do usuario
-  let valor = elementoinput.getAttribute("type") == "checkbox" ?elementoinput.checked:parseInt(elementoinput.value);
+  let valor =
+    elementoinput.getAttribute("type") == "checkbox"
+      ? elementoinput.checked
+      : parseInt(elementoinput.value);
 
-  if (typeof(valor) != typeof(true)) {
-    valormax = efeitos[elementoinput.parentElement.querySelector("h1").textContent][3]
-    valormin = efeitos[elementoinput.parentElement.querySelector("h1").textContent][2]
+  if (typeof valor != typeof true) {
+    valormax =
+      efeitos[elementoinput.parentElement.querySelector("h1").textContent][3];
+    valormin =
+      efeitos[elementoinput.parentElement.querySelector("h1").textContent][2];
 
-    valor = valor/(100/valormax)
+    valor = valor / (100 / valormax);
 
     if (valormin > valor) {
-      valor = valormin
-      elementoinput.value = valormin*100;
+      valor = valormin;
+      elementoinput.value = valormin * 100;
     }
     if (valormax < valor) {
-      valor = valormax
+      valor = valormax;
       elementoinput.value = 100;
     }
   }
 
   ProjectOpen["items"][
     document.getElementById("selected").getAttribute("name")
-  ]["efeitos"][elementoinput.parentElement.querySelector("h1").textContent][indice] =
-    valor;
+  ]["efeitos"][elementoinput.parentElement.querySelector("h1").textContent][
+    indice
+  ] = valor;
 
   LoadProject("imagem");
 }
@@ -354,7 +406,7 @@ function AppendDraw(i) {
       width: 100,
       "border-radius": 0,
       "aspect-radio": "1/1",
-      rotation:0
+      rotation: 0,
     },
     Circulo: {
       type: "circle",
@@ -364,7 +416,7 @@ function AppendDraw(i) {
       height: 100,
       width: 100,
       "border-radius": 10000,
-      rotation:0
+      rotation: 0,
     },
     Text: {
       type: "text",
@@ -373,7 +425,7 @@ function AppendDraw(i) {
       left: 50,
       top: 50,
       fontSize: 24,
-      rotation:0
+      rotation: 0,
     },
   };
 
@@ -412,29 +464,29 @@ async function UploadImage(imageFiles) {
     let indice = 1;
     while (true) {
       let nome = indice + imagemfile["name"];
-      console.log(imagemfile)
+      console.log(imagemfile);
       if (!Object.keys(ProjectOpen["items"]).includes(nome)) {
         imageData["images"][nome] = base64;
         ProjectOpen["items"][nome] = {
-        type: "img",
-        nome: nome,
-        efeitos: JSON.parse(JSON.stringify(efeitos)),
-        ordem: 0,
-        css: {
-          "background-color": "#FFFFFF",
-          left: "0",
-          top: "0",
-          scaleX: "0.5",
-          scaleY: "0.5",
-          height: "1",
-          width: "1",
-          rotation: 0,
-          "border-radius": "0",
-        },
-      };
+          type: "img",
+          nome: nome,
+          efeitos: JSON.parse(JSON.stringify(efeitos)),
+          ordem: 0,
+          css: {
+            "background-color": "#FFFFFF",
+            left: "0",
+            top: "0",
+            scaleX: "0.5",
+            scaleY: "0.5",
+            height: "1",
+            width: "1",
+            rotation: 0,
+            "border-radius": "0",
+          },
+        };
         break;
       }
-      indice++
+      indice++;
     }
   }
   LoadProject("all");
@@ -451,7 +503,11 @@ function ShowPropriets() {
   }
 
   if (name != null) {
-    if (ProjectOpen["items"][document.getElementById("selected").getAttribute("name")]["type"] == "img") {
+    if (
+      ProjectOpen["items"][
+        document.getElementById("selected").getAttribute("name")
+      ]["type"] == "img"
+    ) {
       document.getElementById("container-efeitos").style.display = "block";
     } else {
       document.getElementById("container-efeitos").style.display = "none";
@@ -476,9 +532,12 @@ function ShowPropriets() {
     // ajustar os valores dos inputs
     var i = 0;
     inputstypes.forEach((propriety) => {
-      document.getElementById("container-selected").querySelectorAll("input")[i].value =
-        !isNaN(ProjectOpen["items"][imagemname]["css"][propriety])
-        ? parseInt(ProjectOpen["items"][imagemname]["css"][propriety]).toFixed(2)
+      document.getElementById("container-selected").querySelectorAll("input")[
+        i
+      ].value = !isNaN(ProjectOpen["items"][imagemname]["css"][propriety])
+        ? parseInt(ProjectOpen["items"][imagemname]["css"][propriety]).toFixed(
+            2
+          )
         : ProjectOpen["items"][imagemname]["css"][propriety];
       i++;
     });
@@ -487,21 +546,25 @@ function ShowPropriets() {
 
 function changePropriet(input, propriety) {
   let valor = input.value;
-  let nome = input.parentElement.parentElement.parentElement.getAttribute("name");
+  let nome =
+    input.parentElement.parentElement.parentElement.getAttribute("name");
 
-  ProjectOpen["items"][nome]["css"][propriety] = !isNaN(valor)? parseInt(valor): valor;
+  ProjectOpen["items"][nome]["css"][propriety] = !isNaN(valor)
+    ? parseInt(valor)
+    : valor;
 
   LoadProject("imagem");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("Backbtn2").textContent += " - " + decodeURIComponent(ProjectName);
+  document.getElementById("Backbtn2").textContent +=
+    " - " + decodeURIComponent(ProjectName);
 
   document.getElementById("Backbtn1").addEventListener("click", back);
   document.getElementById("Backbtn2").addEventListener("click", changeName);
 
   imagespace = new fabric.Canvas("imagespace", {
-    selection: false
+    selection: false,
   });
 
   if (ProjectName != "") {
@@ -521,6 +584,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (document.getElementById("selected"))
         document.getElementById("selected").removeAttribute("id");
       element.setAttribute("id", "selected");
+
       LoadProject("camadas");
       LoadProject("efeitos");
     }
@@ -529,19 +593,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // MUDAR TEXTO AO DUPLO CLICK
   imagespace.on("mouse:dblclick", function (e) {
     const obj = e.target;
-    if (obj.type === 'text') {
-      let text = prompt("Insira texto: ")
+    if (obj.type === "text") {
+      let text = prompt("Insira texto: ");
       if (text != null && text != "") {
-        ProjectOpen["items"][obj.name]["css"]["text"] = text
-        LoadProject("imagem")
+        ProjectOpen["items"][obj.name]["css"]["text"] = text;
+        LoadProject("imagem");
       }
     }
-  })
-  
+  });
+
   // SALVAR A IMAGEM AO MUDA-LA
   imagespace.on("object:modified", function (e) {
     const obj = e.target;
-    if (obj.type === 'text') {
+    if (obj.type === "text") {
       obj.fontSize = obj.fontSize * obj.scaleX;
       obj.scaleX = 1;
       obj.scaleY = 1;
@@ -552,14 +616,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // DESELECIONAR AO CLICAR ESC // DELETAR AO CLICAR DELETE
   document.addEventListener("keydown", (key) => {
-    if (key.key == "s") {AppendDraw(0)}
-    if (key.key == "c") {AppendDraw(1)}
-    if (key.key == "t") {AppendDraw(2)}
+    if (key.key == "s") {
+      AppendDraw(0);
+    }
+    if (key.key == "c") {
+      AppendDraw(1);
+    }
+    if (key.key == "t") {
+      AppendDraw(2);
+    }
     if (key.key == "Delete" || key.key == "e") {
       if (document.getElementById("selected"))
         RemoveItem(document.getElementById("selected").querySelector("p"));
-        document.getElementById("selected").removeAttribute("id");
-        LoadProject("all")
+      document.getElementById("selected").removeAttribute("id");
+      LoadProject("all");
     }
     if (key.key == "Escape") {
       if (imagespace.getActiveObject()) {
@@ -574,90 +644,122 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // SOLTAR A IMAGEM E FAZER UPLOAD
-  window.addEventListener("dragover", e => e.preventDefault());
-  window.addEventListener("drop", e => e.preventDefault());
-  window.addEventListener("drop", e => {
+  window.addEventListener("dragover", (e) => e.preventDefault());
+  window.addEventListener("drop", (e) => e.preventDefault());
+  window.addEventListener("drop", (e) => {
     e.preventDefault();
 
     let allimages = true;
-    Object.keys(e.dataTransfer.files).forEach(archive => {
+    Object.keys(e.dataTransfer.files).forEach((archive) => {
       let file = e.dataTransfer.files[archive];
       if (file && !file.type.startsWith("image/")) {
-        allimages = false
+        allimages = false;
       }
     });
 
     if (allimages) {
-      UploadImage(e.dataTransfer.files)
+      UploadImage(e.dataTransfer.files);
     }
   });
 
   // DESATIVAR PROJETO TEMPORARIO
-  document.getElementById("disabletemp").addEventListener("click", ()=>{
+  document.getElementById("disabletemp").addEventListener("click", () => {
     document.getElementById("Backbtn2").style.textDecoration = "none";
     document.getElementById("Backbtn2").style.color = "var(--branco2)";
 
     document.getElementById("disabletemp").style.display = "none";
     ProjectOpen = profileData["Projetos"][ProjectName];
-    ProjectOpen["IsTempProject"] = false
+    ProjectOpen["IsTempProject"] = false;
 
     WriteStore(dbs[0], profileData);
     WriteStore(dbs[1], imageData);
-  })
+  });
 
   // CONFIGURAÇÔES
-  document.getElementById("configs").addEventListener("click", ()=>{
-    dialog("Configurações",["Arquivo","Projeto","Cancelar"],{1:true,2:true,Escape:true}, (option)=>{
-      setTimeout(()=>{
-        if (option == 0) {
-          dialog("Arquivo",["Exportar Imagem (PNG)", "Exportar Imagem (JPG)", "Importar Imagem", "Cancelar"], {1: true, 2: true, 3:true, Escape: true}, (option1)=>{
-            if (option1 == 0) {
-              CaptureImage("png",true);
-            }
-            if (option1 == 1) {
-              CaptureImage("jpg",false);
-            }
-            if (option1 == 2) {
-              document.getElementById("fileuploader").click()
-            }
-          })
-        }
-        if (option == 1) {
-          dialog("Arquivo",["Descartar Projeto", "Criar Cópia", "Sair do Projeto", "Cancelar"], {1: true, 2: true, 3:true, Escape: true}, (option1)=>{
-            if (option1 == 0) {
-              setTimeout(() => {
-                dialog("Tem certeza que quer deletar esse projeto para sempre?",["Sim","Cancelar"],{Enter: true, Escape: true}, (option2)=>{
-                  if (option2 == 0) {
-                    delete profileData["Projetos"][ProjectName]
-                    WriteStore(dbs[0], profileData);
-                    WriteStore(dbs[1], imageData);
-                    window.location.href = "projects.html"
-                  }
-                })
-              }, 20);
-            }
-            if (option1 == 1) {
-              let indice = 1;
-              while (true) {
-                let nome = ProjectName+indice;
-                if (!Object.keys(profileData["Projetos"]).includes(nome)) {
-                  profileData["Projetos"][nome] = ProjectOpen;
-                  WriteStore(dbs[0], profileData);
-                  WriteStore(dbs[1], imageData);
-                  alert("Uma cópia "+ProjectName+" foi criada!: "+nome)
-                  break;
+  document.getElementById("configs").addEventListener("click", () => {
+    dialog(
+      "Configurações",
+      ["Arquivo", "Projeto", "Cancelar"],
+      { 1: true, 2: true, Escape: true },
+      (option) => {
+        setTimeout(() => {
+          if (option == 0) {
+            dialog(
+              "Arquivo",
+              [
+                "Exportar Imagem (PNG)",
+                "Exportar Imagem (JPG)",
+                "Importar Imagem",
+                "Cancelar",
+              ],
+              { 1: true, 2: true, 3: true, Escape: true },
+              (option1) => {
+                if (option1 == 0) {
+                  CaptureImage("png", true);
                 }
-                indice++;
+                if (option1 == 1) {
+                  CaptureImage("jpg", false);
+                }
+                if (option1 == 2) {
+                  document.getElementById("fileuploader").click();
+                }
               }
-            }
-            if (option1 == 2) {
-              window.location.href = "projects.html"
-            }
-          })
-        }
-      },10)
-    })
-  })
+            );
+          }
+          if (option == 1) {
+            dialog(
+              "Arquivo",
+              [
+                "Descartar Projeto",
+                "Criar Cópia",
+                "Sair do Projeto",
+                "Cancelar",
+              ],
+              { 1: true, 2: true, 3: true, Escape: true },
+              (option1) => {
+                if (option1 == 0) {
+                  setTimeout(() => {
+                    dialog(
+                      "Tem certeza que quer deletar esse projeto para sempre?",
+                      ["Sim", "Cancelar"],
+                      { Enter: true, Escape: true },
+                      (option2) => {
+                        if (option2 == 0) {
+                          delete profileData["Projetos"][ProjectName];
+                          WriteStore(dbs[0], profileData);
+                          WriteStore(dbs[1], imageData);
+                          window.location.href = "projects.html";
+                        }
+                      }
+                    );
+                  }, 20);
+                }
+                if (option1 == 1) {
+                  let indice = 1;
+                  while (true) {
+                    let nome = ProjectName + indice;
+                    if (!Object.keys(profileData["Projetos"]).includes(nome)) {
+                      profileData["Projetos"][nome] = ProjectOpen;
+                      WriteStore(dbs[0], profileData);
+                      WriteStore(dbs[1], imageData);
+                      alert(
+                        "Uma cópia " + ProjectName + " foi criada!: " + nome
+                      );
+                      break;
+                    }
+                    indice++;
+                  }
+                }
+                if (option1 == 2) {
+                  window.location.href = "projects.html";
+                }
+              }
+            );
+          }
+        }, 10);
+      }
+    );
+  });
 
   // adicionar camadas.
   document
@@ -685,17 +787,17 @@ document.addEventListener("DOMContentLoaded", () => {
               );
             }, 10);
           } else if (indice == 2) {
-            promp = prompt("Insira um prompt: ")
+            promp = prompt("Insira um prompt: ");
             if (promp != "" && promp != null) {
-              var link = "https://image.pollinations.ai/prompt/"+promp;
+              var link = "https://image.pollinations.ai/prompt/" + promp;
 
               const response = await fetch(link);
               const blob = await response.blob();
-              const filename = link.split('/').pop();
+              const filename = link.split("/").pop();
               const file = new File([blob], filename, { type: blob.type });
 
               alert("Imagem gerada!");
-              UploadImage([file])
+              UploadImage([file]);
             }
           }
         }
@@ -703,11 +805,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
 function CaptureImage(formato, transparentfundo) {
   const tempCanvas = new fabric.StaticCanvas(null, {
     width: imagespace.width,
-    height: imagespace.height
+    height: imagespace.height,
   });
 
   // fundo branco
@@ -716,21 +817,21 @@ function CaptureImage(formato, transparentfundo) {
     top: 0,
     width: imagespace.width,
     height: imagespace.height,
-    fill: transparentfundo?"transparent":"white"
+    fill: transparentfundo ? "transparent" : "white",
   });
   tempCanvas.add(fundo);
 
   // clona os objetos (incluindo imagens)
-  imagespace.getObjects().forEach(obj => {
-    obj.clone(clone => tempCanvas.add(clone));
+  imagespace.getObjects().forEach((obj) => {
+    obj.clone((clone) => tempCanvas.add(clone));
   });
 
   // espera um pouco para garantir que imagens carreguem
   setTimeout(() => {
     const dataURL = tempCanvas.toDataURL({ format: formato });
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = dataURL;
-    link.download = ProjectName+"."+formato;
+    link.download = ProjectName + "." + formato;
     link.click();
   }, 100); // 100ms normalmente é suficiente
 }

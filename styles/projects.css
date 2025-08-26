@@ -125,6 +125,8 @@ body > nav {
   cursor: pointer;
   background-color: var(--primario);
   color: var(--branco);
+  letter-spacing: 1px;
+  font-family: var(--titlefont1);
 }
 .btn:hover {
   filter: brightness(var(--bright));
