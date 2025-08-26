@@ -127,6 +127,11 @@
   width: 30%;
   border-radius: 30px;
   box-shadow: 0px 0px 10px var(--primario);
+  cursor: pointer;
+  transition: 0.1s ease;
+}
+.text-images img {
+  scale: 1.05;
 }
 
 /* Logo container */
@@ -275,5 +280,6 @@
 
 .developers a:hover {
   color: #0366d6;
+
 
 }
