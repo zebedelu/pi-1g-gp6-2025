@@ -132,7 +132,8 @@ footer nav a {
   color: var(--text-color1);
 }
 #dialog > div > button {
-  color: var(--text-color2);
+  font-weight: bold;
+  color: var(--branco);
   font-size: 130%;
   font-family: var(--titlefont1);
   padding: 15px;
@@ -148,4 +149,3 @@ footer nav a {
   background-color: var(--cinza);
 
 }
-
