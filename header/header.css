@@ -98,6 +98,9 @@ footer {
   color: var(--text);
   padding: 20px;
 }
+footer img {
+  height: 100px;
+}
 footer nav a {
   margin: 0 8px;
   color: var(--text);

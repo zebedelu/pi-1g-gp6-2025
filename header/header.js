@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <a href="tutorial.html">Tutorial</a>
             </nav>
             <p>&copy; 2025 Artephy - Instituto Federal Catarinense</p>
+            <img src="images/IFClogo.webp">
         </footer>
         `
     )
