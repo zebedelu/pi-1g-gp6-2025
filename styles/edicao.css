@@ -345,7 +345,7 @@ main > div {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 200px;
+  width: 100px;
   color: var(--text-color1);
 }
 .container-items-item > * {
@@ -355,7 +355,7 @@ main > div {
 .container-items-item > img {
   cursor: pointer;
   max-height: 100%;
-  max-width: 20%;
+  max-width: 10%;
 }
 .container-items-item > img:nth-child(3):hover {
   scale: 1.2;

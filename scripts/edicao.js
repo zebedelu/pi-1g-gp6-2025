@@ -161,7 +161,7 @@ async function LoadProject(parttoload) {
         cam.querySelectorAll("img")[0].src = imageBas64;
       } else {
         cam.querySelector("p").textContent = ProjectOpen["items"][key]["nome"];
-        cam.querySelectorAll("img")[0].src = "";
+        cam.querySelectorAll("img")[0].src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wIAAgMBAp+N7GAAAAAASUVORK5CYII=";
       }
 
       cam.setAttribute("name", ProjectOpen["items"][key]["nome"]);
