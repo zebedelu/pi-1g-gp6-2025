@@ -625,6 +625,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (key.key == "t") {
       AppendDraw(2);
     }
+    if (key.key == "a") {
+      document.getElementById("ArrowImage").click()
+    }
+    if (key.key == "e") {
+      document.getElementById("StarImage").click()
+    }
     if (key.key == "Delete" || key.key == "e") {
       if (document.getElementById("selected"))
         RemoveItem(document.getElementById("selected").querySelector("p"));
@@ -759,6 +765,29 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 10);
       }
     );
+  });
+  
+  document.querySelectorAll(".container-draw-item").forEach((item) => {
+    item.addEventListener("click", async () => {
+      const imgSrc = item.querySelector("img").src; // Obtém a URL da imagem
+      const fileName = imgSrc.split("/").pop(); // Extrai o nome do arquivo (ex: arrow.webp)
+
+      // Verificar se é uma das imagens desejadas (arrow.webp ou star.webp)
+      if (fileName === "arrow.webp" || fileName === "star.webp") {
+        try {
+          // Carregar a imagem como Blob
+          const response = await fetch(imgSrc);
+          const blob = await response.blob();
+          const file = new File([blob], fileName, { type: blob.type });
+
+          // Chamar UploadImage com o arquivo criado
+          UploadImage([file]);
+        } catch (error) {
+          console.error("Erro ao carregar a imagem:", error);
+          alert("Erro ao carregar a imagem!");
+        }
+      }
+    });
   });
 
   // adicionar camadas.
