@@ -40,7 +40,7 @@ body {
 }
 #dialog > div > p {
   margin: 20px;
-  font-size: 200%;
+  font-size: 200%;  
   font-family: var(--titlefont1);
   color: var(--text-color1);
 }
@@ -209,15 +209,19 @@ main > div {
   border-radius: 15px;
   background-color: var(--branco2);
   transition: 0.1s ease;
+  flex-direction: column;
+  display: flex;
+  margin-bottom: 25px;
 }
 .container-draw-item:hover {
   scale: 1.1;
   cursor: pointer;
 }
 .container-draw-item p {
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: #000;
   color: var(--branco);
+  margin-top: -4%;
+  font-weight: bolder;
+  font-size: 22px;
   display: none;
 }
 .container-draw-item:hover p {
@@ -414,6 +418,4 @@ input[type=number]::-webkit-outer-spin-button {
   height: 100%;
 
 }
-
-
 
