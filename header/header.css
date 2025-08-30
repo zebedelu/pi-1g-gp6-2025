@@ -72,8 +72,9 @@
   margin: 10px;
 }
 #logo {
-  margin: 10px;
+  margin: 20px;
   border-radius: 15px;
+  scale: 0.8;
 }
 #LogoMenu {
   height: 10%;

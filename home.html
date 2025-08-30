@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="styles/home.css" />
     <link rel="stylesheet" href="styles/sobre.css" />
 
-    <link href="libraries/aos.css" rel="stylesheet">
+    <link href="libraries/aos.css" rel="stylesheet" />
     <script src="libraries/aos.js"></script>
 
     <title>Artephy</title>
@@ -34,164 +34,147 @@
 
       <!-- Seção SOBRE -->
       <section class="artephy-container" id="sobre">
-        <div class="left-side">
-          <div class="text-content" data-aos="fade-up">
-            <div class="about-section">
-              <p class="section-title">O que é arte digital</p>
-              <p class="section-text">
-                Arte digital é qualquer tipo de manifestação artística criada
-                com o auxílio de tecnologias digitais. Isso inclui desde a
-                produção de imagens e vídeos até animações e esculturas,
-                utilizando softwares, computadores, tablets e outros
-                dispositivos eletrônicos.
-              </p>
-            </div>
-            <div class="text-images">
-              <img loading="lazy" src="images/artedigital/hamid.webp" />
-              <img loading="lazy" src="images/artedigital/mendelbrot.webp" />
-              <img loading="lazy" src="images/artedigital/refik.webp" />
+        <div class="main-side">
+          <div class="text-content">
+            <div class="about-container" data-aos="fade-up">
+              <div class="about-section" id="hoverarttitle">
+                <p class="section-title">▶ O que é arte</p>
+                <p class="section-text" id="hoverarttext">
+                  "A arte é<span id="hoverarttextspan"
+                    >tudo que dá brilho ao nosso mundo.</span
+                  >"
+                </p>
+              </div>
+              <div class="text-images">
+                <img src="images/Arte.webp" />
+              </div>
             </div>
 
-            <div class="about-section">
-              <p class="section-title">O que é arte tradicional</p>
-              <p class="section-text">
-                Arte tradicional refere-se a formas de expressão artística que
-                utilizam meios físicos e técnicas convencionais, como pintura,
-                escultura, desenho, gravura, cerâmica, tecelagem e outras formas
-                de artesanato.
-              </p>
-            </div>
-            <div class="text-images">
-              <img loading="lazy" src="images/artetradicional/godandman1.webp" />
-              <img loading="lazy" src="images/artetradicional/davinci.webp" />
-              <img loading="lazy" src="images/artetradicional/vangogh.webp" />
-            </div>
-
-            <div class="about-section">
-              <p class="section-title">
-                Arte digital como extensão da arte tradicional
-              </p>
-              <p class="section-text">
-                A arte digital pode ser vista como uma extensão da arte
-                tradicional, utilizando a tecnologia para ampliar as
-                possibilidades criativas e expressivas, sem necessariamente
-                substituir os métodos tradicionais.
-              </p>
-              <p class="section-text">
-                A arte digital vem se consolidando como uma forma significativa
-                de expressão artística contemporânea, impulsionada pelo
-                constante desenvolvimento de softwares de criação e manipulação
-                de imagens, vídeos, sons e ambientes interativos. Com a
-                integração cada vez mais fluida entre diferentes ferramentas
-                tecnológicas, os artistas têm descoberto e explorado novas
-                linguagens e possibilidades expressivas anteriormente
-                inacessíveis.
-              </p>
-            </div>
-            <div class="text-images">
-              <img loading="lazy" src="images/extensãodigtrad/impressão.webp" />
-              <img loading="lazy" src="images/extensãodigtrad/stopmotiom.webp" />
-              <img loading="lazy" src="images/extensãodigtrad/RV.webp" />
+            <div class="about-container" data-aos="fade-up">
+              <div class="about-section">
+                <p class="section-title">▶ O que é arte tradicional</p>
+                <p class="section-text">
+                  Arte tradicional é a produção artística que preserva técnicas,
+                  estilos e valores transmitidos ao longo do tempo, seja nos
+                  grandes movimentos históricos ou em práticas culturais que
+                  ainda hoje seguem essas heranças.
+                </p>
+              </div>
+              <div class="text-images">
+                <img src="images/Arte Tradicional.webp" />
+              </div>
             </div>
 
-            <div class="about-section">
-              <p class="section-title">IA na arte</p>
-              <p class="section-text">
-                A inteligência artificial (IA) representa uma das formas mais
-                proeminentes de criação na arte digital contemporânea,
-                englobando a produção de vídeos, imagens, textos e sons.
-                Operando por meio de algoritmos matemáticos complexos, a IA
-                recebe uma entrada, como um simples prompt — “Uma casa na
-                árvore” — e gera uma saída, como uma imagem correspondente.
-              </p>
-              <details class="section-text">
-                <summary class="section-subtitle">
-                  Como assim?
-                </summary>
-                <div class="ImageIAGenerator">
-                  <div>
-                    <h2 class="section-subtitle">Não entendeu? Teste na prática!</h2>
-                    <input
-                      type="text"
-                      id="IAprompt"
-                      placeholder="Insira seu Prompt"
-                    />
-                    <button
-                      class="IAbutton"
-                      type="button"
-                      onclick='
-                              document.getElementById("IAimage1").src = "https://image.pollinations.ai/prompt/"+document.getElementById("IAprompt").value;
-                              document.getElementById("IAloadMsg").textContent="Carregando imagem..."
-                              '
-                    >
-                      Gerar.
-                    </button>
-                    <p style="color: grey; font-family: var(--textfont1);">Créditos à equipe PollinationsAI</p> 
-                    <p style="color: grey; font-family: var(--textfont1);" id="IAloadMsg"></p> 
-                  </div>
-                  <img loading="lazy" id="IAimage1" class="IAimage" onload="document.getElementById('IAloadMsg').textContent=''" />
-                </div>
-              </details>
-            </div>
-            <div class="text-images">
-              <img loading="lazy" src="images/ianaarte/imagem.webp" />
-              <img loading="lazy" src="images/ianaarte/texto.webp" />
-              <img loading="lazy" src="images/ianaarte/video.webp" />
+            <div class="about-container" data-aos="fade-up">
+              <div class="about-section">
+                <p class="section-title">▶ O que é arte digital</p>
+                <p class="section-text">
+                  Arte digital nasce da tecnologia: do traço em uma tela ao
+                  universo em 3D. É rápida, acessível e feita para ser explorada
+                  e compartilhada sem limites.
+                </p>
+              </div>
+              <div class="text-images">
+                <img src="images/Arte Digital.webp" />
+              </div>
             </div>
 
-            <div class="about-section">
-              <p class="section-title">Objetivo do site</p>
+            <div class="about-container" data-aos="fade-up">
+              <div class="about-section">
+                <p class="section-title">
+                  ▶ Arte digital como extensão da arte tradicional
+                </p>
+                <p class="section-text">
+                  Não é ruptura, é evolução. O digital amplia a arte
+                  tradicional, somando novas ferramentas sem apagar suas raízes.
+                </p>
+              </div>
+              <div class="text-images">
+                <img src="images/Arte como extensão.webp" />
+              </div>
+            </div>
+
+            <div>
+              <div class="about-section" data-aos="fade-up">
+                <p class="section-title">
+                  ▶ IA na arte<a
+                    href="https://www.youtube.com/watch?v=9ubrRYssxCM"
+                    class="externallink"
+                    target="_blank"
+                    >◥</a
+                  >
+                </p>
+                <p class="section-text">
+                  A inteligência artificial abre novas portas para a criação.
+                  Com ela, um simples comando pode virar imagem, som ou vídeo em
+                  segundos. É a tecnologia se tornando parceira da imaginação.
+                </p>
+              </div>
+              <div class="text-images" data-aos="fade-up">
+                <img src="images/IA na arte.webp" />
+              </div>
+            </div>
+
+            <div class="about-section" data-aos="fade-up">
+              <p class="section-title">▶ Objetivo do site</p>
               <p class="section-text">
-                Neste trabalho vamos mostrar como a arte digital abre caminhos
-                para a criação artística de maneiras totalmente novas. Com o
-                auxílio de ferramentas modernas e acessíveis, é possível
-                experimentar formas de expressão que antes estavam restritas a
-                quem tinha contato com materiais tradicionais ou espaços
-                específicos de produção artística. Agora, qualquer pessoa com um
-                computador ou até mesmo um celular pode transformar sentimentos,
-                ideias e experiências em obras que carregam sua identidade. A
-                arte digital, portanto, não apenas amplia os recursos criativos,
-                mas também dá voz a pessoas que talvez nunca tivessem a chance
-                de se expressar por meios convencionais, permitindo a criação de
-                trabalhos únicos, pessoais e cheios de significado.
+                Mostrar que criar arte nunca foi tão possível. Aqui, tradição e
+                inovação se encontram para inspirar quem quer transformar ideias
+                em expressão.
               </p>
+            </div>
+
+            <div class="developers">
+              <a href="https://github.com/zebedelu" target="_blank">
+                <img
+                  loading="lazy"
+                  src="images/githubicons/zebedelu imagem github.jpg"
+                  alt="Foto do usuário"
+                />
+              </a>
+              <a href="https://github.com/zebedelu" target="_blank">zebedelu</a>
+
+              <a href="https://github.com/vini2223" target="_blank">
+                <img
+                  loading="lazy"
+                  src="images/githubicons/vinicius imagem github.jpg"
+                  alt="Foto do usuário"
+                />
+              </a>
+              <a href="https://github.com/vini2223" target="_blank"
+                >vinicius giordani</a
+              >
+
+              <a href="https://github.com/GabrielBVanz" target="_blank">
+                <img
+                  loading="lazy"
+                  src="images/githubicons/gabriel imagem github.jpg"
+                  alt="Foto do usuário"
+                />
+              </a>
+              <a href="https://github.com/GabrielBVanz" target="_blank"
+                >GabrielBVanz</a
+              >
+
+              <a
+                href="https://github.com//HugoCezarRizolliCampagnaro"
+                target="_blank"
+              >
+                <img
+                  loading="lazy"
+                  src="images/githubicons/hugo imagem github.jpg"
+                  alt="Foto do usuário"
+                />
+              </a>
+              <a
+                href="https://github.com//HugoCezarRizolliCampagnaro"
+                target="_blank"
+                >HugoCezar</a
+              >
             </div>
           </div>
         </div>
-
-        <!-- <div class="right-side">
-          <div class="right-line"></div>
-          <div class="logo-content">
-            <div class="logo-container">
-              <img loading="lazy" src="images/logo64x64.webp" class="logo-icon" />
-              <div class="logo-text">Artephy</div>
-            </div>
-          </div>
-        </div> -->
       </section>
-      <section class="developers-container" id="sobre">
-        <div class="developers">
-            <a href="https://github.com/zebedelu" target="_blank">
-              <img loading="lazy" src="images/githubicons/zebedelu imagem github.jpg" alt="Foto do usuário">
-            </a>
-            <a href="https://github.com/zebedelu" target="_blank">zebedelu</a>
-
-            <a href="https://github.com/vini2223" target="_blank">
-              <img loading="lazy" src="images/githubicons/vinicius imagem github.jpg" alt="Foto do usuário">
-            </a>
-            <a href="https://github.com/vini2223" target="_blank">vinicius giordani</a>
-
-            <a href="https://github.com/GabrielBVanz" target="_blank">
-              <img loading="lazy" src="images/githubicons/gabriel imagem github.jpg" alt="Foto do usuário">
-            </a>
-            <a href="https://github.com/GabrielBVanz" target="_blank">GabrielBVanz</a>
-
-            <a href="https://github.com//HugoCezarRizolliCampagnaro" target="_blank">
-              <img loading="lazy" src="images/githubicons/hugo imagem github.jpg" alt="Foto do usuário">
-            </a>
-            <a href="https://github.com//HugoCezarRizolliCampagnaro" target="_blank">HugoCezar</a>
-          </div>
-      </section>    
       <div class="buttons">
         <a
           href="projects.html"
@@ -209,5 +192,6 @@
         once: true,
       });
     </script>
+    <script src="scripts/home.js"></script>
   </body>
 </html>

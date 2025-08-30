@@ -1,11 +1,13 @@
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   background: #f9f9f9;
   color: #333;
   overflow-x: hidden;
 }
 .hero {
-  background: #111 url("../images/background.jpg");
+  background: #111 url("../images/background.webp");
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
@@ -56,5 +58,4 @@ body {
   background: #f9f9f9;
   border-radius: 20px;
   margin-top: -2%;
-
 }
