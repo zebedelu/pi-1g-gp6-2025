@@ -631,6 +631,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (key.key == "e") {
       document.getElementById("StarImage").click()
     }
+    if (key.key == "x") {
+      document.getElementById("TrianImage").click()
+    }
     if (key.key == "Delete" || key.key == "e") {
       if (document.getElementById("selected"))
         RemoveItem(document.getElementById("selected").querySelector("p"));
@@ -772,21 +775,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const imgSrc = item.querySelector("img").src; // Obtém a URL da imagem
       const fileName = imgSrc.split("/").pop(); // Extrai o nome do arquivo (ex: arrow.webp)
 
-      // Verificar se é uma das imagens desejadas (arrow.webp ou star.webp)
-      if (fileName === "arrow.webp" || fileName === "star.webp") {
-        try {
-          // Carregar a imagem como Blob
-          const response = await fetch(imgSrc);
-          const blob = await response.blob();
-          const file = new File([blob], fileName, { type: blob.type });
+      try {
+        // Carregar a imagem como Blob
+        const response = await fetch(imgSrc);
+        const blob = await response.blob();
+        const file = new File([blob], fileName, { type: blob.type });
 
-          // Chamar UploadImage com o arquivo criado
-          UploadImage([file]);
-        } catch (error) {
-          console.error("Erro ao carregar a imagem:", error);
-          alert("Erro ao carregar a imagem!");
+        // Chamar UploadImage com o arquivo criado
+        UploadImage([file]);
+      } catch (error) {
+        console.error("Erro ao carregar a imagem:", error);
+        alert("Erro ao carregar a imagem!");
         }
-      }
     });
   });
 
