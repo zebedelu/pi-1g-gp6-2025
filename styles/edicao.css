@@ -203,8 +203,6 @@ main > div {
   overflow-x: auto;
 }
 .container-draw-item {
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: #000;
   margin: 5px;
   height: 80px;
   width: 80px;
@@ -217,6 +215,8 @@ main > div {
   cursor: pointer;
 }
 .container-draw-item p {
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #000;
   color: var(--branco);
   display: none;
 }
@@ -414,5 +414,6 @@ input[type=number]::-webkit-outer-spin-button {
   height: 100%;
 
 }
+
 
 
