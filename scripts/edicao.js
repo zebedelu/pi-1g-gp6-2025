@@ -774,19 +774,22 @@ document.addEventListener("DOMContentLoaded", () => {
     item.addEventListener("click", async () => {
       const imgSrc = item.querySelector("img").src; // Obtém a URL da imagem
       const fileName = imgSrc.split("/").pop(); // Extrai o nome do arquivo (ex: arrow.webp)
+      const allowedFormsNames = ["triangle.webp", "arrow.webp", "star.webp"];
 
-      try {
-        // Carregar a imagem como Blob
-        const response = await fetch(imgSrc);
-        const blob = await response.blob();
-        const file = new File([blob], fileName, { type: blob.type });
+      if (allowedFormsNames.includes(fileName)) {
+        try {
+          // Carregar a imagem como Blob
+          const response = await fetch(imgSrc);
+          const blob = await response.blob();
+          const file = new File([blob], fileName, { type: blob.type });
 
-        // Chamar UploadImage com o arquivo criado
-        UploadImage([file]);
-      } catch (error) {
-        console.error("Erro ao carregar a imagem:", error);
-        alert("Erro ao carregar a imagem!");
+          // Chamar UploadImage com o arquivo criado
+          UploadImage([file]);
+        } catch (error) {
+          console.error("Erro ao carregar a imagem:", error);
+          alert("Erro ao carregar a imagem!");
         }
+      }
     });
   });
 
@@ -863,4 +866,5 @@ function CaptureImage(formato, transparentfundo) {
     link.download = ProjectName + "." + formato;
     link.click();
   }, 100); // 100ms normalmente é suficiente
+
 }
