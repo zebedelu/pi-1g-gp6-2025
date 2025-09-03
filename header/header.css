@@ -67,6 +67,7 @@
 }
 #DefaultHeader > a:hover {
   color: var(--primario);
+  scale: 1.05;
 }
 #menu {
   margin: 10px;
@@ -153,3 +154,4 @@ footer nav a {
   background-color: var(--cinza);
 
 }
+
