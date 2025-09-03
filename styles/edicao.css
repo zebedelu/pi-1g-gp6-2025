@@ -63,12 +63,17 @@ body {
 
 header {
   display: flex;
-  margin: 7px;
-  padding: 2px;
+  background-color: var(--primario);
+  margin: 5px;
+  border-radius: 10px;
+  justify-content: space-between;
+}
+header div {
+  display: flex;
   border-radius: 10px;
   background-color: var(--primario);
 }
-header > * {
+header div * {
   font-family: "Arial", "ajustar fonte";
   margin: 2px;
   font-size: 130%;
@@ -416,6 +421,5 @@ input[type=number]::-webkit-outer-spin-button {
 }
 #configs {
   height: 100%;
-
 }
 

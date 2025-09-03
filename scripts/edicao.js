@@ -90,14 +90,15 @@ function SaveOnChange(element) {
   if (element.type === "text") {
     // salvar texto corretamente
     ProjectOpen["items"][element.name]["css"]["fontSize"] = element.fontSize;
-  } else {
-    // salvar height/width para imagens e formas
-    ProjectOpen["items"][element.name]["css"]["height"] =
-      element.height * element.scaleY;
-    ProjectOpen["items"][element.name]["css"]["width"] =
-      element.width * element.scaleX;
+  } else if (element.type == "polygon") {
+    ProjectOpen["items"][element.name]["css"]["points"] = element.points;
   }
-
+  // salvar height/width para imagens e formas
+  ProjectOpen["items"][element.name]["css"]["height"] =
+    element.height * element.scaleY;
+  ProjectOpen["items"][element.name]["css"]["width"] =
+    element.width * element.scaleX;
+    
   ProjectOpen["items"][element.name]["css"]["scaleX"] = element.scaleX;
   ProjectOpen["items"][element.name]["css"]["scaleY"] = element.scaleY;
 
@@ -161,7 +162,8 @@ async function LoadProject(parttoload) {
         cam.querySelectorAll("img")[0].src = imageBas64;
       } else {
         cam.querySelector("p").textContent = ProjectOpen["items"][key]["nome"];
-        cam.querySelectorAll("img")[0].src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wIAAgMBAp+N7GAAAAAASUVORK5CYII=";
+        cam.querySelectorAll("img")[0].src =
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wIAAgMBAp+N7GAAAAAASUVORK5CYII=";
       }
 
       cam.setAttribute("name", ProjectOpen["items"][key]["nome"]);
@@ -222,6 +224,17 @@ async function LoadProject(parttoload) {
             scaleY: 1,
             lockUniScaling: true,
           });
+        } else if (item["css"]["type"] == "polygon") {
+          itemelement = new fabric.Polygon(item["css"]["points"], {
+            left: item["css"]["left"],
+            top: item["css"]["top"],
+            fill: item["css"]["background-color"],
+            angle: item["css"]["rotation"],
+            selectable: true,
+            scaleX: Number(item["css"]["scaleX"]),
+            scaleY: Number(item["css"]["scaleY"]),
+            lockUniScaling: true,
+          });
         } else {
           itemelement = new fabric.Rect({
             left: item["css"]["left"],
@@ -279,7 +292,12 @@ async function LoadProject(parttoload) {
 
   // efeitos
   if (parttoload == "efeitos" || parttoload == "all") {
-    if (document.getElementById("selected") && ProjectOpen["items"][document.getElementById("selected").getAttribute("name")].type === "img") {
+    if (
+      document.getElementById("selected") &&
+      ProjectOpen["items"][
+        document.getElementById("selected").getAttribute("name")
+      ].type === "img"
+    ) {
       document.getElementById("posPropriet").style.display = "block";
       document.getElementById("sizePropriet").style.display = "none";
       document.getElementById("corEbordaPropriet").style.display = "none";
@@ -427,6 +445,62 @@ function AppendDraw(i) {
       fontSize: 24,
       rotation: 0,
     },
+    Arrow: {
+      type: "polygon",
+      "background-color": "#000000",
+      left: 50,
+      top: 50,
+      rotation: 0,
+      scaleX: "1",
+      scaleY: "1",
+      "border-radius": 0,
+      points: [
+        { x: 0, y: 10 },
+        { x: 60, y: 10 },
+        { x: 60, y: 0 },
+        { x: 80, y: 20 },
+        { x: 60, y: 40 },
+        { x: 60, y: 30 },
+        { x: 0, y: 30 },
+      ],
+    },
+    Star: {
+      type: "polygon",
+      "background-color": "#000000",
+      left: 50,
+      top: 50,
+      rotation: 0,
+      scaleX: "1",
+      scaleY: "1",
+      "border-radius": 0,
+      points: [
+        { x: 50, y: 0 },   // topo
+        { x: 61, y: 35 },
+        { x: 98, y: 35 },
+        { x: 68, y: 57 },
+        { x: 79, y: 91 },
+        { x: 50, y: 70 },
+        { x: 21, y: 91 },
+        { x: 32, y: 57 },
+        { x: 2,  y: 35 },
+        { x: 39, y: 35 }
+      ],
+    },
+    Triangle: {
+      type: "polygon",
+      "background-color": "#000000",
+      left: 50,
+      top: 50,
+      rotation: 0,
+      scaleX: "1",
+      scaleY: "1",
+      "border-radius": 0,
+      points: [
+        { x: 50, y: 0 },
+        { x: 100, y: 100 },
+        { x: 0, y: 100 }
+      ],
+    },
   };
 
   let desenho = Object.keys(variations)[i];
@@ -532,9 +606,8 @@ function ShowPropriets() {
     // ajustar os valores dos inputs
     var i = 0;
     inputstypes.forEach((propriety) => {
-      document.getElementById("container-selected").querySelectorAll("input")[
-        i
-      ].value = !isNaN(ProjectOpen["items"][imagemname]["css"][propriety])
+      document.getElementById("container-selected").querySelectorAll("input")[i].value = 
+      !isNaN(ProjectOpen["items"][imagemname]["css"][propriety])
         ? parseInt(ProjectOpen["items"][imagemname]["css"][propriety]).toFixed(
             2
           )
@@ -605,6 +678,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // SALVAR A IMAGEM AO MUDA-LA
   imagespace.on("object:modified", function (e) {
     const obj = e.target;
+    console.log(obj);
     if (obj.type === "text") {
       obj.fontSize = obj.fontSize * obj.scaleX;
       obj.scaleX = 1;
@@ -626,13 +700,13 @@ document.addEventListener("DOMContentLoaded", () => {
       AppendDraw(2);
     }
     if (key.key == "a") {
-      document.getElementById("ArrowImage").click()
+      AppendDraw(3);
     }
     if (key.key == "e") {
-      document.getElementById("StarImage").click()
+      AppendDraw(4);
     }
     if (key.key == "x") {
-      document.getElementById("TrianImage").click()
+      AppendDraw(5);
     }
     if (key.key == "Delete" || key.key == "e") {
       if (document.getElementById("selected"))
@@ -769,31 +843,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     );
   });
-  
-  document.querySelectorAll(".container-draw-item").forEach((item) => {
-    item.addEventListener("click", async () => {
-      const imgSrc = item.querySelector("img").src; // Obtém a URL da imagem
-      const fileName = imgSrc.split("/").pop(); // Extrai o nome do arquivo (ex: arrow.webp)
-      const allowedFormsNames = ["triangle.webp", "arrow.webp", "star.webp"];
 
-      if (allowedFormsNames.includes(fileName)) {
-        try {
-          // Carregar a imagem como Blob
-          const response = await fetch(imgSrc);
-          const blob = await response.blob();
-          const file = new File([blob], fileName, { type: blob.type });
-
-          // Chamar UploadImage com o arquivo criado
-          UploadImage([file]);
-        } catch (error) {
-          console.error("Erro ao carregar a imagem:", error);
-          alert("Erro ao carregar a imagem!");
-        }
-      }
-    });
-  });
-
-  // adicionar camadas.
+  // adicionar camadas
   document
     .getElementById("container-items-info")
     .querySelector("button")
@@ -823,13 +874,20 @@ document.addEventListener("DOMContentLoaded", () => {
             if (promp != "" && promp != null) {
               var link = "https://image.pollinations.ai/prompt/" + promp;
 
-              const response = await fetch(link);
-              const blob = await response.blob();
-              const filename = link.split("/").pop();
-              const file = new File([blob], filename, { type: blob.type });
+              const response = await fetch(link)
+              .then(response => response.blob())
+              .then(async (data)=> {
+                const blob = await data
+                const filename = link.split("/").pop();
+                const file = new File([blob], filename, { type: blob.type });
 
-              alert("Imagem gerada!");
-              UploadImage([file]);
+                alert("Imagem gerada!");
+                UploadImage([file]);
+              })
+              .catch(error => {
+                alert("Erro ao gerar imagem! ",error);
+                console.log("Erro ao gerar imagem! ",error);
+              });
             }
           }
         }
@@ -866,5 +924,4 @@ function CaptureImage(formato, transparentfundo) {
     link.download = ProjectName + "." + formato;
     link.click();
   }, 100); // 100ms normalmente é suficiente
-
 }
