@@ -315,6 +315,8 @@ main > div {
   display: flex;
   align-content: center;
   width: 70%;
+  height: 20%;
+  font-size: 130%;
   margin: 5px;
   padding-inline: 10px;
   border-radius: 10px;
@@ -422,5 +424,4 @@ input[type=number]::-webkit-outer-spin-button {
 #configs {
   height: 100%;
 }
-
 

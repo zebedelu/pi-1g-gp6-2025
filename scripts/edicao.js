@@ -98,7 +98,7 @@ function SaveOnChange(element) {
     element.height * element.scaleY;
   ProjectOpen["items"][element.name]["css"]["width"] =
     element.width * element.scaleX;
-    
+
   ProjectOpen["items"][element.name]["css"]["scaleX"] = element.scaleX;
   ProjectOpen["items"][element.name]["css"]["scaleY"] = element.scaleY;
 
@@ -116,19 +116,10 @@ function SaveOnChange(element) {
 }
 
 function RemoveItem(item) {
-  dialog(
-    "Deseja realmente apagar esse item para sempre?",
-    ["Apagar", "Cancelar"],
-    { Enter: true, Escape: true },
-    (indice) => {
-      if (indice == 0) {
-        let nome = item.parentElement.getAttribute("name");
-        delete imageData["images"][nome];
-        delete ProjectOpen["items"][nome];
-        LoadProject("all");
-      }
-    }
-  );
+  let nome = item.parentElement.getAttribute("name");
+  delete imageData["images"][nome];
+  delete ProjectOpen["items"][nome];
+  LoadProject("all");
 }
 
 async function LoadProject(parttoload) {
@@ -474,7 +465,7 @@ function AppendDraw(i) {
       scaleY: "1",
       "border-radius": 0,
       points: [
-        { x: 50, y: 0 },   // topo
+        { x: 50, y: 0 }, // topo
         { x: 61, y: 35 },
         { x: 98, y: 35 },
         { x: 68, y: 57 },
@@ -482,8 +473,8 @@ function AppendDraw(i) {
         { x: 50, y: 70 },
         { x: 21, y: 91 },
         { x: 32, y: 57 },
-        { x: 2,  y: 35 },
-        { x: 39, y: 35 }
+        { x: 2, y: 35 },
+        { x: 39, y: 35 },
       ],
     },
     Triangle: {
@@ -498,7 +489,7 @@ function AppendDraw(i) {
       points: [
         { x: 50, y: 0 },
         { x: 100, y: 100 },
-        { x: 0, y: 100 }
+        { x: 0, y: 100 },
       ],
     },
   };
@@ -606,8 +597,9 @@ function ShowPropriets() {
     // ajustar os valores dos inputs
     var i = 0;
     inputstypes.forEach((propriety) => {
-      document.getElementById("container-selected").querySelectorAll("input")[i].value = 
-      !isNaN(ProjectOpen["items"][imagemname]["css"][propriety])
+      document.getElementById("container-selected").querySelectorAll("input")[
+        i
+      ].value = !isNaN(ProjectOpen["items"][imagemname]["css"][propriety])
         ? parseInt(ProjectOpen["items"][imagemname]["css"][propriety]).toFixed(
             2
           )
@@ -875,19 +867,19 @@ document.addEventListener("DOMContentLoaded", () => {
               var link = "https://image.pollinations.ai/prompt/" + promp;
 
               const response = await fetch(link)
-              .then(response => response.blob())
-              .then(async (data)=> {
-                const blob = await data
-                const filename = link.split("/").pop();
-                const file = new File([blob], filename, { type: blob.type });
+                .then((response) => response.blob())
+                .then(async (data) => {
+                  const blob = await data;
+                  const filename = link.split("/").pop();
+                  const file = new File([blob], filename, { type: blob.type });
 
-                alert("Imagem gerada!");
-                UploadImage([file]);
-              })
-              .catch(error => {
-                alert("Erro ao gerar imagem! ",error);
-                console.log("Erro ao gerar imagem! ",error);
-              });
+                  alert("Imagem gerada!");
+                  UploadImage([file]);
+                })
+                .catch((error) => {
+                  alert("Erro ao gerar imagem! ", error);
+                  console.log("Erro ao gerar imagem! ", error);
+                });
             }
           }
         }

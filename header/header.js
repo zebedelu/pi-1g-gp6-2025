@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 <a href="home.html#sobre">Sobre</a> • 
                 <a href="projects.html">Meus Projetos</a> • 
                 <a href="tutorial.html">Tutorial</a>
+              <p>&copy; 2025 Artephy - Instituto Federal Catarinense</p>
             </nav>
-            <p>&copy; 2025 Artephy - Instituto Federal Catarinense</p>
             <img src="images/IFClogo.webp">
         </footer>
         `

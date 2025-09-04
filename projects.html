@@ -7,11 +7,16 @@
     <link rel="stylesheet" type="text/css" href="header/header.css" />
     <script src="header/header.js"></script>
 
+    <!-- REMOVER O BOTÂO DE IR PARA O TUTORIAL NO EDICAO.HTML NO MODO OFFLINE -->
+
     <script src="scripts/main.js"></script>
 
     <script src="scripts/projects.js"></script>
     <link rel="stylesheet" href="styles/projects.css" />
     <title>Seus Projetos com Filtros</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <!-- <script src="scripts/downloadoffline.js"></script> -->
   </head>
   <body>
     <div id="dialog">
@@ -30,7 +35,12 @@
             <button class="btn" id="newtempproject">
               Novo Projeto Temporario
             </button>
-            <button class="btn" id="clearProjects">Deletar tudo</button>
+            <button class="btn" id="clearProjects">
+              Deletar tudo
+            </button>
+            <!-- <button onclick="baixarProjeto()" href="projects.html" download="./" class="btn" id="downofflinebutton">
+              Fazer Download Offline
+            </button> -->
           </div>
           <div class="projects-scroll">
             <div class="projects">
