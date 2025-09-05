@@ -1,10 +1,9 @@
+
 document.addEventListener("DOMContentLoaded", () => {
   if (document.querySelector("footer"))
     document.querySelector("footer").remove();
   const url = document.location.href;
-  var a = fetch("header/offlineversion.json");
-  console.log(a);
-  if (url.startsWith("file:///")) {
+  if (isofflineversion !== null) {
     if (document.getElementById("downloadBtn")) {
       document.querySelector("a[href='tutorial.html']").remove();
     } else {
@@ -74,14 +73,14 @@ async function baixarProjeto() {
     return await response.arrayBuffer();
   }
 
-  zip.file("header/offlineversion.json",  
-    agora.getSeconds().toString().padStart(2, "0") +":" +agora.getMinutes().toString().padStart(2, "0") +":" +agora.getHours().toString().padStart(2, "0") +"/" +
-    agora.getDate().toString().padStart(2, "0") +"/" +(agora.getMonth() + 1).toString().padStart(2, "0") +"/" +agora.getFullYear());
-    
   for (const caminho of meusArquivos) {
     try {
       const conteudo = await baixarArquivo(caminho);
-      zip.file(caminho, conteudo);
+      if (!caminho.endsWith(".js")) {
+        zip.file(caminho, conteudo);
+      } else {
+        zip.file(caminho, "isofflineversion=1;" + conteudo);
+      }
 
       // Corrige o HTML substituindo se encontrar a referência
       if (caminho.endsWith(".css")) {
