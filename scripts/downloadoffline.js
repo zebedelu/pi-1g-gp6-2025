@@ -2,8 +2,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   if (document.querySelector("footer"))
     document.querySelector("footer").remove();
-  const url = document.location.href;
-  if (isofflineversion !== null) {
+
+  if (typeof isofflineversion != "undefined") {
     if (document.getElementById("downloadBtn")) {
       document.querySelector("a[href='tutorial.html']").remove();
     } else {
